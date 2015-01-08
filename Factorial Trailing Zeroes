@@ -1,0 +1,42 @@
+Given an integer n, return the number of trailing zeroes in n!.
+
+Note: Your solution should be in logarithmic time complexity.
+
+public class Solution {
+    public int trailingZeroes(int n) {
+       int count=0;
+        for(int i=5;n/i>=1;){
+            count+=n/i;
+            n=n/5;
+        }
+       return count;
+    }
+}
+
+Simple Solution:
+1. caculate n!
+2. caculate trailing zeroes
+fault: time complesity is more than logarithmic
+
+Improved Solution:
+Consider: 
+        1.  5!=5*4*3*2*1   have one 0 which from 5*2.    2s #> 5s # 
+            I can only consider the number of 5s.
+        2.  condiser 25, 125, 625....
+            count=n/5+n/25+n/125+......
+        One Wrong solution:
+                            public class Solution {
+                              public int trailingZeroes(int n) {
+                                 int count=0;
+                                  for(int i=5;n/i>=1;i*=5){
+                                      count+=n/i;
+                                  }
+                                 return count;
+                              }
+                          }
+                    reason:
+                            原因就是 i*5一直连乘时出现i = 14时，内存溢出(5^13
+                             = 1220703125 < 2^31, but 5^14 = 6103515625 > 2^32)
+                            
+                            但是 6103515625
+                             % 2^32 = 1808548329 < 2 ^31，即1808548329 为合理输入
