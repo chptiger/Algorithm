@@ -22,19 +22,19 @@ public class Valid_Anagram_242{
 	}
 	
 	public static boolean Valid_Anagram(String s, String t){
-		String[] s1 = s.split("");
-		String[] s2 = t.split("");
+		char[] s1 = s.toCharArray();
+		char[] s2 = t.toCharArray();
 	//	System.out.println(Arrays.toString(s1));
 	//	System.out.println(Arrays.toString(s2));
 		if(s.length() != t.length()) return false;
-		
+		int l = s2.length;
 		//System.out.println(s2.length);
-			for(int m = 0;m<s2.length;m++){
-				for(int i=0; i< s1.length; i++){
+			for(int m = 0;m<l;m++){
+				for(int i=0; i< l; i++){
 					//System.out.println(s1[i]);
 					if(s1[i] == s2[m]){
-						s1[i] = null;
-						s2[m] = null;
+						s1[i] = '\u0000';
+						s2[m] = '\u0000';
 						System.out.println(s1[i]);
 						System.out.println(s2[m]);
 						break;
@@ -45,12 +45,12 @@ public class Valid_Anagram_242{
 		
 		System.out.println(Arrays.toString(s1));
 		System.out.println(Arrays.toString(s2));
-		for(int i = 0; i< s1.length;i++){
-			if(s1[i] != null)return false;
+		for(int i = 0; i< l;i++){
+			if(s1[i] != '\u0000')return false;
 		}
 		
-		for(int i = 0; i< s2.length;i++){
-			if(s2[i] != null)return false;
+		for(int i = 0; i< l;i++){
+			if(s2[i] != '\u0000')return false;
 		}
 		return true;
 	}
