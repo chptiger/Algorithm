@@ -11,11 +11,10 @@ Given binary tree {3,9,20,#,#,15,7},
    15   7
 return its bottom-up level order traversal as:
 [
-  [15,7],
+  [3],
   [9,20],
-  [3]
+  [15,7]
 ]
-
 
 
 	 4
@@ -28,7 +27,7 @@ package easy;
 import java.util.LinkedList;
 import java.util.ArrayList;
 
-public class LevelOrder_BT_107{
+public class LevelOrder_BT_102{
 	public static void main(String[] args){
 		TreeNode n1 = new TreeNode(1);
 		TreeNode n2 = new TreeNode(2);
@@ -46,6 +45,8 @@ public class LevelOrder_BT_107{
 		n2.right = n3;
 		print(n4);
 		
+		LevelOrder_BT_Ite(n4);
+		
 		LevelOrder_BT_Rec(n4);
 	}
 	public static void LevelOrder_BT_Rec(TreeNode root){
@@ -59,34 +60,34 @@ public class LevelOrder_BT_107{
 		if(level >= l.size()){
 			l.add(new ArrayList<Integer>());
 		}
-				
+		l.get(level).add(root.val);
+		
 		bfs(root.left, level+1, l);
 		bfs(root.right, level+1, l);
-		
-		l.get(l.size()-level-1).add(root.val);
 	}
 	
-	/* DFS
-	public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
-
-        if(root == null) return wrapList;
-
-        queue.offer(root);
-        while(!queue.isEmpty()){
-            int levelNum = queue.size();
-            List<Integer> subList = new LinkedList<Integer>();
-            for(int i=0; i<levelNum; i++) {
-                if(queue.peek().left != null) queue.offer(queue.peek().left);
-                if(queue.peek().right != null) queue.offer(queue.peek().right);
-                subList.add(queue.poll().val);
-            }
-            wrapList.add(0, subList);
-        }
-        return wrapList;
-    }
-	*/
+	public static void LevelOrder_BT_Ite(TreeNode root){
+		if(root == null) return ;
+		
+		LinkedList<TreeNode> s = new LinkedList<TreeNode>();
+		s.add(root);
+				
+		while(!s.isEmpty()){
+			TreeNode cur = s.pop();
+			System.out.println(cur.val);
+			
+			if(cur.left!=null){
+				s.add(cur.left);
+				//System.out.println(cur.left.val);
+			}
+			
+			if(cur.right!=null){
+				s.add(cur.right);
+				//System.out.println(cur.right.val);
+			}
+		}
+		
+	}
 	
 	public static void print(TreeNode root){
 		if(root == null) return;
