@@ -39,12 +39,14 @@ public class LCA_BT_235{
 		n2.right = n3;
 		print(n4);
 		
-		TreeNode n = LCA_BT(n4,n7,n9);
+		TreeNode n = LCA_BT(n4,n7,n6);
 		System.out.println(n.val);
 	}
 	
 	public static TreeNode LCA_BT(TreeNode root,TreeNode n1, TreeNode n2){
 		TreeNode n = null;
+		if(root == n1) return n = n1;
+		if(root == n2) return n = n2;
 		
 		if(find_Help(root.left, n1)){
 			if(find_Help(root.right, n2)) return root;
