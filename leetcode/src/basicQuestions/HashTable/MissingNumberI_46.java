@@ -1,4 +1,4 @@
-package basicQuestions.String;
+package basicQuestions.HashTable;
 
 import java.util.Arrays;
 

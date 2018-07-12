@@ -14,7 +14,7 @@ public class commonNumbers_Q3 {
 		int[] b = { 4, 5, 6 };
 		int[] res = commonNumber(a, b);
 //		System.out.println(Arrays.toString(res));
-		System.out.println(commonNumberHashtable(a, b));
+		System.out.println(commonNumberBinarySearch(a, b));
 	}
 
 	// O(m + n)
@@ -37,7 +37,7 @@ public class commonNumbers_Q3 {
 	/*
 	 * TODO Hashtable vs HashMap
 	 * https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable
-	 * T(m + n)
+	 * O(m + n)
 	 */
 	public static String commonNumberHashtable(int[] a, int[] b) {
 		Hashtable<Integer, Integer> res = new Hashtable<>();
@@ -67,6 +67,10 @@ public class commonNumbers_Q3 {
 		return res;
 	}
 	
+	/*
+	 * m << n
+	   O(mlog(n))
+	*/
 	public static String commonNumberBinarySearch(int[] a, int[] b) {
 		StringBuilder sb = new StringBuilder();
 		int al = a.length, bl = b.length;
@@ -90,9 +94,9 @@ public class commonNumbers_Q3 {
 		while (start <= end) {
 			int mid = start + (end - start) / 2;
 			if (arr[mid] > t) {
-				end = mid + 1;
-			} else if (arr[mid] > t) {
-				start = mid - 1;
+				end = mid - 1;
+			} else if (arr[mid] < t) {
+				start = mid + 1;
 			} else {
 				return mid;
 			}
