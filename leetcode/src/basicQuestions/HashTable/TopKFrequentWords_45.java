@@ -21,13 +21,13 @@ import java.util.PriorityQueue;
  * (the list could be of size K or smaller than K)
  * 
  * Examples Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"],
- * top 2 frequent words are [“b”, “c”] 
+ * top 2 frequent words are [ï¿½bï¿½, ï¿½cï¿½] 
  * 
  * Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"], 
- * top 4 frequent words are [“b”, “c”, "a", "d"]
+ * top 4 frequent words are [ï¿½bï¿½, ï¿½cï¿½, "a", "d"]
  * 
  * Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"], 
- * top 5 frequent words are [“b”, “c”, "a", "d”]
+ * top 5 frequent words are [ï¿½bï¿½, ï¿½cï¿½, "a", "dï¿½]
  * 
  * @author xx65
  *
@@ -36,11 +36,15 @@ public class TopKFrequentWords_45 {
 
 	public static void main(String[] args) {
 		String[] Composition = { "a", "a", "b", "b", "b", "b", "c", "c", "c", "d" };
-		// System.out.println(Arrays.toString(topKFrequentWords(Composition, 3)));
-		System.out.println(Arrays.toString(topKFrequent(Composition, 3)));
+		
+		// java 8
+		System.out.println(Arrays.toString(topKFrequentWords(Composition, 3)));
+		
+		// priority queue
+		System.out.println(Arrays.toString(topKFrequentPriorityQueue(Composition, 3)));
 	}
 
-	public static String[] topKFrequent(String[] combo, int k) {
+	public static String[] topKFrequentPriorityQueue(String[] combo, int k) {
 		if (combo.length == 0) {
 			return new String[0];
 		}
@@ -88,12 +92,9 @@ public class TopKFrequentWords_45 {
 		}
 
 		Map<String, Integer> tmp = new HashMap<>();
-		for (String word : Composition) {
-			tmp.put(word, tmp.getOrDefault(word, 0) + 1);
-		}
+		Arrays.stream(Composition).forEach(com -> tmp.put(com, tmp.getOrDefault(com, 0) + 1));
 
 		List<String> candidates = new ArrayList(tmp.keySet());
-
 		Collections.sort(candidates,
 				(w1, w2) -> tmp.get(w1).equals(tmp.get(w2)) ? w1.compareTo(w2) : tmp.get(w2) - tmp.get(w1)); // O(N*log(N))
 
