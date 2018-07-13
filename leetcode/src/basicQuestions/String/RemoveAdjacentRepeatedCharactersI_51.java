@@ -13,7 +13,7 @@ Try to do it in place: we could not use Set. because Set interface doesn't provi
  * @author xx65
  *
  */
-public class RemoveAdjacentRepeatedCharactersI_45 {
+public class RemoveAdjacentRepeatedCharactersI_51 {
 
 	public static void main(String[] args) {
 		char[] input = { 'a', 'a', 'a', 'a', 'b', 'b', 'b', 'c' };
@@ -27,7 +27,7 @@ public class RemoveAdjacentRepeatedCharactersI_45 {
 	*/
 	private static String removeAdjacentRepeatedChar(char[] input) {
 		if (input == null || input.length <= 1) {
-			return input.toString();
+			return new String(input);
 		}
 		int slow = 0, fast = 1;
 		while (fast < input.length) {
