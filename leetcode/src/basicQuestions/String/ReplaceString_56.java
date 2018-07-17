@@ -1,8 +1,5 @@
 package basicQuestions.String;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 /**
  *
 Given an original string input, and two strings S and T, replace all occurrences of S in input with T.
@@ -10,15 +7,17 @@ Assumptions
 input, S and T are not null, S is not empty string
 
 Examples
+
 input = "appledogapple", S = "apple", T = "cat", input becomes "catdogcat"
+
 input = "https://www.google.com?q=thomas_test", S = "_", T = "20%", input becomes "https://www.google.com?q=thomas20%test"
  *
  */
 public class ReplaceString_56 {
 	public static void main(String[] args) {
-		String input = "appledogapple";
-		String src = "apple";
-		String tar = "cat";
+		String input = "https://www.google.com?q=thomas_test";
+		String src = "_";
+		String tar = "20%";
 		System.out.println(replaceString(input, src, tar));
 	}
 
@@ -68,7 +67,19 @@ public class ReplaceString_56 {
 		return true;
 	}
 
-	private static String replaceLonger(char[] tmp, String src, String tar) {
+//	from right-hand side to left-hand side
+	private static String replaceLonger(char[] input, String src, String tar) {
+//		get final count number of mached string
+		int machIndex = getAllMathcesIndex(input, src.toCharArray(), tar.toCharArray());
+//		declare new char[] array with updated size
+		char[] finalVersion = new char[input.length + (machIndex / (tar.length() - 1)) * (src.length() - tar.length())];
+		//		replcat subString
+		
 		return null;
 	}
+
+private static int getAllMathcesIndex(char[] input, char[] charArray, char[] charArray2) {
+	// TODO Auto-generated method stub
+	return 0;
+}
 }
