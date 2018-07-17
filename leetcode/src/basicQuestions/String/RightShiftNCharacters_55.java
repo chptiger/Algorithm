@@ -20,9 +20,14 @@ public class RightShiftNCharacters_55 {
 	}
 	
 	private static String rightShiftNCharacters(String input, int n) {
-		if(input == null || input.length() <= n) {
+		if(input == null || input.length() <= 1 || input.length() == n) {
 			return input;
 		}
+		
+		if(input.length() < n) {
+			n = n % input.length();
+		}
+		
 		char[] tmp = input.toCharArray();
 		reverse(tmp, 0, input.length() - 1);
 		reverse(tmp, 0, n - 1);
