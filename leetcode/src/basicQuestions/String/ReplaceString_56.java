@@ -1,5 +1,8 @@
 package basicQuestions.String;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
 Given an original string input, and two strings S and T, replace all occurrences of S in input with T.
@@ -67,19 +70,46 @@ public class ReplaceString_56 {
 		return true;
 	}
 
-//	from right-hand side to left-hand side
-	private static String replaceLonger(char[] input, String src, String tar) {
-//		get final count number of mached string
-		int machIndex = getAllMathcesIndex(input, src.toCharArray(), tar.toCharArray());
-//		declare new char[] array with updated size
-		char[] finalVersion = new char[input.length + (machIndex / (tar.length() - 1)) * (src.length() - tar.length())];
-		//		replcat subString
+	/*
+	    "a" replaced by "cat"
+		In this case, we need from right-hand side to left-hand side by two pointers method
+		If we do it from left-hand side to right-hand side, when we replace the first short string to longer string, the fast pointer will be overwritten.
+		If we do it from right-hand side to left-hand side, we have new declared space to save the longer string and the original string will not be overwritten
 		
-		return null;
+		copy from input to result
+	*/
+	private static String replaceLonger(char[] input, String src, String tar) {
+//		get final count number of the matched string
+		List<Integer> matches = getAllMathcesIndex(input, src.toCharArray());
+//		declare new char[] array with updated size
+		char[] result = new char[input.length + matches.size() * (tar.length() - src.length())];
+//		replace subString
+		int slow = input.length - 1, fast = result.length - 1, matchIndex = matches.size() - 1;
+		while(slow >= 0) {
+			if(matchIndex >= 0 && slow == matches.get(matchIndex)) {
+				copySubString(result, fast - (tar.length() - 1), tar.toCharArray());
+				fast -= tar.length();
+				slow -= src.length();
+				matchIndex--;
+			} else {
+				result[fast--] = input[slow--];
+			}
+		}
+		
+		return new String(result);
 	}
 
-private static int getAllMathcesIndex(char[] input, char[] charArray, char[] charArray2) {
-	// TODO Auto-generated method stub
-	return 0;
-}
+	private static List<Integer> getAllMathcesIndex(char[] input, char[] src) {
+		List<Integer> res = new ArrayList<>();
+		int i = 0;
+		while(i < input.length) {
+			if(isSubString(input, i, src)) {
+				res.add(i + src.length - 1);
+				i += src.length;
+			} else {
+				i++;
+			}
+		}
+		return res;
+	}
 }
