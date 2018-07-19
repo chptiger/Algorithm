@@ -1,3 +1,8 @@
+package basicQuestions.String;
+
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * Shuffling 
  * 
@@ -12,13 +17,16 @@
  */
 public class StringShuffling_Advanced1 {
 
-	public static void main(String[] args) {
-		String input = "ABCDEFG1234567";
-		input = stringShuffling(input.toCharArray(), 0, input.length() - 1);
-		System.out.println(input);
+	@Test
+	public void test_StringShuffling() {
+		String input = "ABC123";
+		String inputEven = "AB12";
+		Assert.assertEquals("A1B2C3", stringShuffling(input.toCharArray(), 0, input.length() - 1));
+		Assert.assertEquals("A1B2", stringShuffling(inputEven.toCharArray(), 0, inputEven.length() - 1));
 	}
 
-	private static String stringShuffling(char[] tmp, int left, int right) {
+	// TODO consider how to return in the recursion function
+	public static String stringShuffling(char[] tmp, int left, int right) {
 		if ((right - left) <= 1) {
 			return new String(tmp);
 		}

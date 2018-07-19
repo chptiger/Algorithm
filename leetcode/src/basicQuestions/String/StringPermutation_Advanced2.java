@@ -1,28 +1,33 @@
-package basicQuestions.Tree.DFS;
+package basicQuestions.String;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 /**
-Given a string with no duplicate characters, return a list with all permutations of the characters.
-Examples
-Set = “abc”, all permutations are [“abc”, “acb”, “bac”, “bca”, “cab”, “cba”]
-Set = "", all permutations are [""]
-Set = null, all permutations are []
+ * Shuffling 
+ * 
+ * e.g.
+ * abc 
+ * ->
+ * abc acb bac, bca, cab, cba
+ * 
+ * explanation:
+ * https://docs.google.com/document/d/1Ic2DZ6fVZcbz9Y-OcEhc9-UUflLOvMcn5p4TOcGZO7Y/edit 
+ * 
+ * @author xx65
  *
  */
-public class AllPermutationsI_44 {
+public class StringPermutation_Advanced2 {
 
 	@Test
 	public void test_allPermutations() {
-		Assert.assertEquals(new ArrayList<>(Arrays.asList("aba", "aab", "baa")), permutations("aba"));
+//		Assert.assertEquals(new ArrayList<>(Arrays.asList("aba", "aab", "baa")), permutations("aba"));
         Assert.assertEquals(new ArrayList<>(Arrays.asList("abc", "acb", "bac","bca","cab","cba")), permutations("abc"));
 	}
-	
+
 	private static ArrayList<String> permutations(String input) {
 		ArrayList<String> result = new ArrayList<>();
 		if (input == null || input.length() <= 1) {
