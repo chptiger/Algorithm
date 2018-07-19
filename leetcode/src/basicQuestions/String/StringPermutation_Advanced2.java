@@ -39,6 +39,17 @@ public class StringPermutation_Advanced2 {
 		return result;
 	}
 
+	/**
+	 * sb.deleteCharAt(sb.length()-1); // remove the appended char
+	   Q: If we remove it in result.add(new String(sb)), what will happen?
+	   A: sb is only removed in the last level operation. It's the recursion function, in the backtracking process, sb is not changed.
+	   
+	   Q: why we need remove it?
+	   A: sb will add new character everytime. we need only keep size is input.length;
+	      append new char gradually and finally put it into the result
+	      in the backtracking, gradually removed it and add other char.
+	   
+	 */
 	private static void permutationHelper(char[] input, boolean[] used, int level, ArrayList<String> result, StringBuilder sb) {
 		if(level == input.length) {
 			result.add(new String(sb));
@@ -51,9 +62,8 @@ public class StringPermutation_Advanced2 {
 				sb.append(input[i]);
 				permutationHelper(input, used, level + 1, result, sb);
 				used[i] = false;
-				sb.deleteCharAt(sb.length()-1); // get to the parent level for brother's nodes
+				sb.deleteCharAt(sb.length()-1); // remove the appended char
 			}
 		}
-
 	}
 }
