@@ -8,7 +8,7 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import utilities.StringUtilies;
+import utilities.StringUtil;
 
 /**
  * Shuffling 
@@ -29,7 +29,7 @@ public class StringPermutation_Advanced2 {
 	@Test
 	public void test_allPermutations() {
 		Assert.assertEquals(new ArrayList<>(Arrays.asList("aba", "aab", "baa")), permutations("aba"));
-//        Assert.assertEquals(new ArrayList<>(Arrays.asList("abc", "acb", "bac","bca","cab","cba")), permutations("abc"));
+        Assert.assertEquals(new ArrayList<>(Arrays.asList("abc", "acb", "bac","bca","cba","cab")), permutations("abc"));
 	}
 
 	private static ArrayList<String> permutations(String input) {
@@ -38,7 +38,7 @@ public class StringPermutation_Advanced2 {
 			result.add(input);
 			return result;
 		}
-		if(StringUtilies.isDuplicate(input.toCharArray())) {
+		if(StringUtil.isDuplicate(input.toCharArray())) {
 			permutationHelperDuplicateInPlace(input.toCharArray(), 0, result);
 		} else {
 			permutationHelperInPlace(input.toCharArray(), 0, result);
@@ -85,9 +85,9 @@ public class StringPermutation_Advanced2 {
 		}
 		
 		for(int i = index; i < input.length; i++) {
-				StringUtilies.swap(input, index, i); // "abc" -> "cba"
+				StringUtil.swap(input, index, i); // "abc" -> "cba"
 				permutationHelperInPlace(input, index + 1, result);
-				StringUtilies.swap(input, index, i); // "cba" -> "abc"
+				StringUtil.swap(input, index, i); // "cba" -> "abc"
 		}
 	}
 	
@@ -100,9 +100,9 @@ public class StringPermutation_Advanced2 {
 		HashSet<Character> set = new HashSet<>();
 		for(int i = index; i < input.length; i++) {
 			if(set.add(input[i])) {
-				StringUtilies.swap(input, index, i); // "abc" -> "cba"
+				StringUtil.swap(input, index, i); // "abc" -> "cba"
 				permutationHelperDuplicateInPlace(input, index + 1, result);
-				StringUtilies.swap(input, index, i); // "cba" -> "abc"
+				StringUtil.swap(input, index, i); // "cba" -> "abc"
 			}
 		}
 	}

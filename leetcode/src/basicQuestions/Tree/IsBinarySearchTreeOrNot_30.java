@@ -1,5 +1,7 @@
 package Algorithm.Tree;
 
+import utilities.TreeNode;
+
 /**
 Determine if a given binary tree is binary search tree.
 

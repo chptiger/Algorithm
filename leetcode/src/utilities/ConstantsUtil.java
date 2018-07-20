@@ -1,11 +1,7 @@
-package util;
+package utilities;
 
 //http://www.mkyong.com/java/how-to-determine-a-prime-number-in-java/
-public class isPrime {
-	public static void main(String[] args) {
-		int n = 21;
-		boolean flag = isPrime(n);
-	}
+public class ConstantsUtil {
 
 	public static boolean isPrime(int n) {
 

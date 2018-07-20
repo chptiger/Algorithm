@@ -1,5 +1,7 @@
 package Algorithm.Tree;
 
+import utilities.TreeNode;
+
 /**
 Check if a given binary tree is symmetric.
  

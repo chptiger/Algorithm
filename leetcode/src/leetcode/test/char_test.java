@@ -1,3 +1,5 @@
+package leetcode.test;
+
 public class char_test {
 	public static void main(String[] args){
 		char[] test = "".toCharArray();

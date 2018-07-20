@@ -1,5 +1,7 @@
 package tree;
 
+import utilities.TreeNode;
+
 public class RevortBinaryTree {
 	public TreeNode invertTree(TreeNode root) {
 		if (root == null) {

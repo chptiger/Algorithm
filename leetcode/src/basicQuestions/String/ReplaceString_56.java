@@ -1,7 +1,11 @@
 package basicQuestions.String;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Test;
 
 /**
  *
@@ -17,11 +21,10 @@ input = "https://www.google.com?q=thomas_test", S = "_", T = "20%", input become
  *
  */
 public class ReplaceString_56 {
-	public static void main(String[] args) {
-		String input = "https://www.google.com?q=thomas_test";
-		String src = "_";
-		String tar = "20%";
-		System.out.println(replaceString(input, src, tar));
+	@Test
+	public void testReplacingString() {
+		assertEquals("https://www.google.com?q=thomas20%test", replaceString("https://www.google.com?q=thomas_test", "_", "20%"));
+		assertEquals("catdogcat", replaceString("appledogapple", "apple", "cat"));
 	}
 
 	private static String replaceString(String input, String src, String tar) {

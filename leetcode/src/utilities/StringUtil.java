@@ -1,10 +1,9 @@
 package utilities;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StringUtilies {
+public class StringUtil {
 	public static void swap(char[] input, int s, int e) {
 		char tmp = input[s];
 		input[s] = input[e];

@@ -1,4 +1,4 @@
-package Algorithm.Tree;
+package utilities;
 
 public class TreeNode {
 	public int key;
