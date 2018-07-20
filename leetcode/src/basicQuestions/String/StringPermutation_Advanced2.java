@@ -2,9 +2,13 @@ package basicQuestions.String;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import utilities.StringUtilies;
 
 /**
  * Shuffling 
@@ -24,8 +28,8 @@ public class StringPermutation_Advanced2 {
 
 	@Test
 	public void test_allPermutations() {
-//		Assert.assertEquals(new ArrayList<>(Arrays.asList("aba", "aab", "baa")), permutations("aba"));
-        Assert.assertEquals(new ArrayList<>(Arrays.asList("abc", "acb", "bac","bca","cab","cba")), permutations("abc"));
+		Assert.assertEquals(new ArrayList<>(Arrays.asList("aba", "aab", "baa")), permutations("aba"));
+//        Assert.assertEquals(new ArrayList<>(Arrays.asList("abc", "acb", "bac","bca","cab","cba")), permutations("abc"));
 	}
 
 	private static ArrayList<String> permutations(String input) {
@@ -34,8 +38,15 @@ public class StringPermutation_Advanced2 {
 			result.add(input);
 			return result;
 		}
-		StringBuilder sb = new StringBuilder();
-		permutationHelper(input.toCharArray(), new boolean[input.length()], 0, result, sb);
+		if(StringUtilies.isDuplicate(input.toCharArray())) {
+			permutationHelperDuplicateInPlace(input.toCharArray(), 0, result);
+		} else {
+			permutationHelperInPlace(input.toCharArray(), 0, result);
+/*			StringBuilder sb = new StringBuilder();
+			permutationHelper(input.toCharArray(), new boolean[input.length()], 0, result, sb);
+*/		
+			}
+		
 		return result;
 	}
 
@@ -63,6 +74,35 @@ public class StringPermutation_Advanced2 {
 				permutationHelper(input, used, level + 1, result, sb);
 				used[i] = false;
 				sb.deleteCharAt(sb.length()-1); // remove the appended char
+			}
+		}
+	}
+	
+	private static void permutationHelperInPlace(char[] input, int index, ArrayList<String> result) {
+		if(index == input.length) {
+			result.add(new String(input));
+			return;
+		}
+		
+		for(int i = index; i < input.length; i++) {
+				StringUtilies.swap(input, index, i); // "abc" -> "cba"
+				permutationHelperInPlace(input, index + 1, result);
+				StringUtilies.swap(input, index, i); // "cba" -> "abc"
+		}
+	}
+	
+	private static void permutationHelperDuplicateInPlace(char[] input, int index, ArrayList<String> result) {
+		if(index == input.length) {
+			result.add(new String(input));
+			return;
+		}
+		
+		HashSet<Character> set = new HashSet<>();
+		for(int i = index; i < input.length; i++) {
+			if(set.add(input[i])) {
+				StringUtilies.swap(input, index, i); // "abc" -> "cba"
+				permutationHelperDuplicateInPlace(input, index + 1, result);
+				StringUtilies.swap(input, index, i); // "cba" -> "abc"
 			}
 		}
 	}
