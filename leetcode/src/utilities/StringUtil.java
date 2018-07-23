@@ -23,7 +23,7 @@ public class StringUtil {
 		return false;
 	}
 	
-	public static int uniqueDigitsOfArray(char[] input) {
+	public static int getUniqueCharacterLength(char[] input) {
 		Set<Character> tmp = new HashSet<>();
 		int result = 0;
 		for(int i = 0; i < input.length; i++) {
@@ -40,7 +40,18 @@ public class StringUtil {
 		}
 		
 		for(int i = 0; i < input.length; i++) {
-			container.put(input[i], container.getOrDefault(input[i], 1) + 1);
+			container.put(input[i], container.getOrDefault(input[i], 0) + 1);
+		}
+		return container;
+	}
+	
+	public static Set<Character> addStringToSet(Set<Character> container, char[] input) {
+		if(input == null || input.length < 1) {
+			return container;
+		}
+		
+		for(int i = 0; i < input.length; i++) {
+			container.add(input[i]);
 		}
 		return container;
 	}
