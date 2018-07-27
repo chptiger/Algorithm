@@ -1,8 +1,9 @@
 package Algorithm.LinkedList;
 
+import POJO.ListNode;
 
 /**
-Reorder the given singly-linked list N1 -> N2 -> N3 -> N4 -> ¡­ -> Nn -> null to be N1- > Nn -> N2 -> Nn-1 -> N3 -> Nn-2 -> ¡­ -> null
+Reorder the given singly-linked list N1 -> N2 -> N3 -> N4 -> ï¿½ï¿½ -> Nn -> null to be N1- > Nn -> N2 -> Nn-1 -> N3 -> Nn-2 -> ï¿½ï¿½ -> null
 Examples
 L = null, is reordered to null
 L = 1 -> null, is reordered to 1 -> null

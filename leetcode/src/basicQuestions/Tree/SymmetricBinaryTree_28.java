@@ -1,6 +1,6 @@
 package Algorithm.Tree;
 
-import utilities.TreeNode;
+import POJO.TreeNode;
 
 /**
 Check if a given binary tree is symmetric.

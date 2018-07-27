@@ -20,7 +20,7 @@ public class APowerB {
 	}
 
 	public static int power(int a, int b) {
-		if (a == 0) {// vs a == 0 && b <= 0 ? which one is better?
+		if (a == 0) {// TODO vs a == 0 && b <= 0 ? which one is better?
 			return 0;
 		} else if (b == 0) {
 			return 1;

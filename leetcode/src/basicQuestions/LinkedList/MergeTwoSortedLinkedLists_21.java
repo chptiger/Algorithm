@@ -1,5 +1,6 @@
 package Algorithm.LinkedList;
 
+import POJO.ListNode;
 
 /**
 Given a linked list and a target value T, partition it such that all nodes less than T are listed before the nodes larger than or equal to target value T. 

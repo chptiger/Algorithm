@@ -23,7 +23,7 @@ public class QuickSort
 			while(a[j] > pivot){
 				j--;
 			}
-			if(i <= j){  // we need swap "==" to jump out the while loop
+			if(i <= j){  //  TODO: we need swap "==" to jump out the while loop
 				int tmp = a[i];
 				a[i] = a[j];
 				a[j] = tmp;

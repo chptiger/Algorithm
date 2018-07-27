@@ -1,5 +1,6 @@
 package Algorithm.LinkedList;
 
+import POJO.ListNode;
 
 /**
 Reverse a singly-linked list.
@@ -33,11 +34,11 @@ public class ReverseLinkedList_17 {
 			return head;
 		}
 		
-		ListNode nextNode = reverseLinkedListRecursion(head.next); // ´¥µ×²Å·´µ¯
+		ListNode nextNode = reverseLinkedListRecursion(head.next); // ï¿½ï¿½ï¿½×²Å·ï¿½ï¿½ï¿½
 		
 		head.next.next = head;
 		head.next = null;
-		return nextNode;  // ÓÀÔ¶·µ»ØµÄ¶¼ÊÇ×îºóÒ»¸önode£¨nextNode£©
+		return nextNode;  // ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ØµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½nodeï¿½ï¿½nextNodeï¿½ï¿½
 	}
 }
 

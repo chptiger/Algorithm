@@ -1,4 +1,4 @@
-package utilities;
+package POJO;
 
 public class TreeNode {
 	public int key;

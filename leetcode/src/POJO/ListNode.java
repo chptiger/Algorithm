@@ -1,4 +1,4 @@
-package Algorithm.LinkedList;
+package POJO;
 
 public class ListNode {
 	public int value;

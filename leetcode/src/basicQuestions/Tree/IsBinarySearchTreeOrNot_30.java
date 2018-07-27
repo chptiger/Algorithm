@@ -1,6 +1,6 @@
 package Algorithm.Tree;
 
-import utilities.TreeNode;
+import POJO.TreeNode;
 
 /**
 Determine if a given binary tree is binary search tree.

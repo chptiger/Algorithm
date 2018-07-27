@@ -1,5 +1,6 @@
 package Algorithm.LinkedList;
 
+import POJO.ListNode;
 
 /**
 Insert a value in a sorted linked list.
