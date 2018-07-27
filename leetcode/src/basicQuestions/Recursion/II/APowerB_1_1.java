@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author xx65
  *
  */
-public class APowerB {
+public class APowerB_1_1 {
 
 	@Test
 	public void test_aPowerB() {

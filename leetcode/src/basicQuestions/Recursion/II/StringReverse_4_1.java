@@ -13,7 +13,7 @@ import utilities.StringUtil;
  * @author xx65
  *
  */
-public class StringReverse_RecursionII_4_1 {
+public class StringReverse_4_1 {
 	
 	@Test
 	public void test_stringReverse() {
