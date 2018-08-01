@@ -9,7 +9,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 import utilities.StringUtil;
 
-public class QuickSort_4_2 {
+public class QuickSort_2_1 {
 
 	@Test
 	public void test_stringReverse() {
@@ -32,7 +32,7 @@ public class QuickSort_4_2 {
 			while (arr[middle] < arr[end]) {
 				end--;
 			}
-			if (start <= end) {
+			if (start <= end) {// must be =
 				int tmp = start;
 				start = end;
 				end = start;
