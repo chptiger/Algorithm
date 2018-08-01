@@ -16,7 +16,7 @@ L = 1 -> 2 -> 3 -> null, after reverse is 2 -> 1 -> 3 -> null
  * @author xx65
  *
  */
-public class ReverseLinkedListInPairs_66 {
+public class ReverseLinkedListInPairs_3_2 {
 	
 	public static ListNode a1 = new ListNode(1);
 	public static ListNode a2 = new ListNode(2);
