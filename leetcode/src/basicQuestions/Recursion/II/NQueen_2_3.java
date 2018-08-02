@@ -25,7 +25,7 @@ public class NQueen_2_3 {
 	
 	@Test
 	public void test_nQueen() {
-		int n = 8;
+		int n = 4;
 		List<List<Integer>> result = new ArrayList<>();
 		nQueen(result, n);
 		for(List<Integer> cur : result) {
@@ -50,7 +50,8 @@ public class NQueen_2_3 {
 	 */
 	public static void helper(int n, List<List<Integer>> result, List<Integer> cur) {
 		if(cur.size() == n) {
-			result.add(cur);	// put one method into container of the all possible answer
+//			result.add(cur);					not working.
+			result.add(new ArrayList<>(cur));	// put one method into container of the all possible answer
 			return;
 		}
 		
