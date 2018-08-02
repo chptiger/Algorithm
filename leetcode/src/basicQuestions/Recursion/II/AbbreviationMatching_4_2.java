@@ -20,25 +20,41 @@ return if the string matches the abbreviation.
 public class AbbreviationMatching_4_2 {
 	
 	@Test
-	public void test_stringReverse() {
-		String input = "abcd";
-		Assert.assertEquals("dcba", reverseString(input.toCharArray()));
+	public void test_abbreviation() {
+		String input = "sophisticatedarfg";
+		String pattern = "s11da3";
+		Assert.assertEquals(true, abbreviation(pattern.toCharArray(), input.toCharArray(), 0, 0));
 	}
-	
-	public static String reverseString(char[] input) {
-		if(input == null || input.length <= 1) {
-			return new String(input);
-		}
-		 recursionHelper(input, 0, input.length - 1);
-		 return new String(input);
-	}
-	
-	public static void recursionHelper(char[] input, int start, int end) {
-		if(start >= end) {
-			return;
+
+	private boolean abbreviation(char[] pattern, char[] input, int p, int i) {
+		if(input.length == i && p == pattern.length) {
+			return true;
+		} 
+		if(p > pattern.length || i > input.length) {
+			return false;
 		}
 		
-		StringUtil.swap(input, start++, end--);
-		recursionHelper(input, start, end);
+//		the char is not number
+		while((p < pattern.length && (pattern[p] < '0' || pattern[p] > '9'))) {
+//			if(input[i] == pattern[p]) {
+//				return abbreviation(pattern, input, p + 1, i + 1);
+//			}
+//			return false;
+			if(input[i] != pattern[p]) {
+				return false;
+			}
+			i++;
+			p++;
+		}
+		
+//		the char is number
+		int count = 0;
+		while(p < pattern.length && pattern[p] >= '0' && pattern[p] <= '9') {
+			count = count * 10 + Integer.valueOf(pattern[p] - '0');
+			p++;
+		}
+		
+		return abbreviation(pattern, input, p, i + count);
 	}
+	
 }
