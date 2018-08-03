@@ -27,7 +27,7 @@ public class AbbreviationMatching_4_2 {
 	}
 
 	private boolean abbreviation(char[] pattern, char[] input, int p, int i) {
-		if(input.length == i && p == pattern.length) {
+		if(input.length == i && p == pattern.length) {	// only when they run out of input and pattern at the same time, there is a match.
 			return true;
 		} 
 		if(p > pattern.length || i > input.length) {
