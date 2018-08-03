@@ -1,4 +1,4 @@
-package unitTest;
+package basicQuestions.Recursion.II;
 
 // Store number of nodes in left subtree
 public class StoreNumberOfNodesInLeftSubtree {
