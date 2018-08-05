@@ -88,4 +88,19 @@ public class TreeUtil {
 			    && ifMirrorTrees(one.right, two.left);
 	}
 	
+	public TreeNode findLowestCommonAncestor(TreeNode root, TreeNode one, TreeNode two) {
+		if( root == null || root == one || root == two) {
+			return root;
+		}
+		
+		TreeNode ll = findLowestCommonAncestor(root.left, one, two);
+		TreeNode rr = findLowestCommonAncestor(root.right, one, two);
+		
+		if(ll != null && rr != null) {
+			return root;
+		}
+		
+		return ll != null ? ll : rr;
+	}
+	
 }
