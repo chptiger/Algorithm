@@ -36,7 +36,7 @@ public class SpiralOrderTravel_2_4 {
 
 	private List<Integer> spiral(int[][] matrix) {
 		List<Integer> result = new ArrayList<>();
-		helper(matrix, 0, matrix.length - 1, result);
+		helper(matrix, 0, matrix.length, result);
 		return result;
 	}
 	
@@ -57,24 +57,25 @@ public class SpiralOrderTravel_2_4 {
 		}
 		
 //		top row
-		for(int i = 0; i < size; i++) {
+		for(int i = 0; i < (size - 1); i++) {
 			result.add(matrix[offset][offset + i]);
 		}
 		
 //		right column
-		for(int i = 0; i < size; i++) { 
-			result.add(matrix[offset + i][offset + size]);
+		for(int i = 0; i < (size - 1); i++) { 
+			result.add(matrix[offset + i][offset + size - 1]);
 		}
 		
 //		bottom row
-		for(int i = size + 1; i > 0; i--) {
-			result.add(matrix[offset + size][offset + i]);
+		for(int i = (size - 1); i > 0; i--) {
+			result.add(matrix[offset + size - 1][offset + i]);
 		}
 		
 //		left column
-		for(int i = size + 1; i > 0; i--) {
-			result.add(matrix[offset + i][offset + size]);
+		for(int i = (size - 1); i > 0; i--) {
+			result.add(matrix[offset + i][offset]);
 		}
+		
 		helper(matrix, offset + 1, size - 2, result);
 	}
 	 
