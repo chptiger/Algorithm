@@ -74,7 +74,7 @@ public class TreeUtil {
 		return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
 	}
 	
-	public static boolean mirrorTrees(TreeNode one, TreeNode two) {
+	public static boolean ifMirrorTrees(TreeNode one, TreeNode two) {
 		if(one == null && two == null) {
 			return true;
 		}
@@ -82,9 +82,10 @@ public class TreeUtil {
 		if(one == null || two == null) {
 			return false;
 		}
+		
 		return  one.key == two.key 
-				&& mirrorTrees(one.left, two.right) 
-			    && mirrorTrees(one.right, two.left);
+				&& ifMirrorTrees(one.left, two.right) 
+			    && ifMirrorTrees(one.right, two.left);
 	}
 	
 }
