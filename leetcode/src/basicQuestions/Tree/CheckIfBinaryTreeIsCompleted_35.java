@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import POJO.TreeNode;
+import pojo.TreeNode;
 
 /**
 Check if a given binary tree is completed. 

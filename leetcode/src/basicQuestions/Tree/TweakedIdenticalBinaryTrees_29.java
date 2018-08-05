@@ -1,6 +1,6 @@
 package Algorithm.Tree;
 
-import POJO.TreeNode;
+import pojo.TreeNode;
 
 /**
 Determine whether two given binary trees are identical assuming any number of ��tweak��s are allowed. 

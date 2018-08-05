@@ -1,6 +1,6 @@
 package Algorithm.LinkedList;
 
-import POJO.ListNode;
+import pojo.ListNode;
 
 /**
  * Check if a given linked list has a cycle. Return true if it does, otherwise return false.

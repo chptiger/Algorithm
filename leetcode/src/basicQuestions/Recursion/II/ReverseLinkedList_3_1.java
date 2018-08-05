@@ -2,7 +2,7 @@ package basicQuestions.Recursion.II;
 
 import org.junit.Test;
 
-import POJO.ListNode;
+import pojo.ListNode;
 
 /**
  * Reverse pairs of elements in a singly-linked list. Examples L = null, after
