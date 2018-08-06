@@ -68,16 +68,18 @@ public class LowestCommonAncestorI_5_1 {
 	 */
 	public static TreeNode findLowestCommonAncestor(TreeNode root, TreeNode left, TreeNode right, TreeNode result) {
 		
-		if(root == null || left == root || right == root || result.key != 100) {
+//		if(root == null || left == root || right == root || result.key != 100) {
+		if(root == null || left == root || right == root) {
+
 			return root;
 		}
-		System.out.println(result.key);
+//		System.out.println(result.key);
 		TreeNode findLeft = findLowestCommonAncestor(root.left, left, right, result);
-		System.out.println(result.key);
+//		System.out.println(result.key);
 		TreeNode findRight = findLowestCommonAncestor(root.right, left, right, result);
-		System.out.println(result.key);
+//		System.out.println(result.key);
 		if(findLeft != null && findRight != null) {
-			result.key = root.key;
+//			result.key = root.key;
 			return root;
 		}
 		
