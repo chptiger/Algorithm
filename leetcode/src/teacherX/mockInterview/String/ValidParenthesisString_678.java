@@ -118,13 +118,13 @@ public class ValidParenthesisString_678 {
 				break;
 				
 			case ')':
-				if (low >= 0) {
+				if (low > 0) {
 					low--;
 				} 
 				high--;
 				break;
 			default:
-				if (low >= 0) {
+				if (low > 0) {
 					low--;
 				} 
 				high++;
