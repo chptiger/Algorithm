@@ -1,7 +1,7 @@
 package basicQuestions.String;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
 *   a0a1a2
