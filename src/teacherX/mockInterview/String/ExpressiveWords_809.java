@@ -16,7 +16,7 @@ Note that we cannot extend a group of size one like "h" to a group of size two l
 all extensions must leave the group extended - ie., at least 3 characters long.
  
 Given a list of query words, return the number of words that are stretchy. 
-
+    
 Example:
 Input: 
 S = "heeellooo"
