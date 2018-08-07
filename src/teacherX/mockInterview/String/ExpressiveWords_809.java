@@ -14,7 +14,7 @@ and add some number of the same character c to it so that the length of the grou
 
 Note that we cannot extend a group of size one like "h" to a group of size two like "hh" - 
 all extensions must leave the group extended - ie., at least 3 characters long.
-
+ 
 Given a list of query words, return the number of words that are stretchy. 
 
 Example:
