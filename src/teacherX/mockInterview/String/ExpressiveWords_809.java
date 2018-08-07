@@ -1,5 +1,11 @@
 package teacherX.mockInterview.String;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+
 /*
 Sometimes people repeat letters to represent extra feeling, such as "hello" -> "heeellooo", "hi" -> "hiiii".  
 Here, we have groups, of adjacent letters that are all the same character, and adjacent characters to the group are different.  
@@ -34,5 +40,44 @@ Notes:
 S and all words in words consist only of lowercase letters
  */
 public class ExpressiveWords_809 {
+	
+	@Test
+	public void test_expressiveWords() {
+		String s = "heeellooo";
+		String[] words = {"hello", "hi", "helo"};
+		Assert.assertEquals(1, findExpressiveWords(s, words));
+	}
 
+	private int findExpressiveWords(String s, String[] words) {
+		if(s == null || words.length < 1) {
+			return -1;
+		}
+		
+		
+		return 0;
+	}
+}
+
+/*
+ *  Run Length Encoding
+ *  
+ *  save head of string in every group with count number in the RLE class
+ */
+class RLE {
+	String key;
+	List<Integer> count;
+	
+	public RLE(String s) {
+		StringBuilder sb = new StringBuilder();
+		count = new ArrayList<>();
+		
+		char[] input = s.toCharArray();
+		for(int i = 0; i < input.length; i++) {
+			if() {
+				sb.append(input[i]);
+				count.add( );
+			}
+		}
+		key = sb.toString();
+	}
 }
