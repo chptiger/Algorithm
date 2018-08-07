@@ -110,6 +110,32 @@ public class ValidParenthesisString_678 {
 	public static boolean validParenthesisIsStringN(char[] input) {
 		int low = 0, high = 0;
 		for (int i = 0; i < input.length; i++) {
+			if('(' == input[i]) {
+				low++;
+				high++;
+			} else if (')' == input[i]) {
+				if (low > 0) {
+					low--;
+				} 
+				high--;
+			} else {
+				if (low > 0) {
+					low--;
+				} 
+				high++;
+			}
+		}	
+		if(high < 0) { 
+			return false;
+		}
+		return low == 0;
+	}
+	
+//	TODO try to find the reason
+//	switch could pass by Leetcode test, if else is working.
+	public static boolean validParenthesisIsStringN_(char[] input) {
+		int low = 0, high = 0;
+		for (int i = 0; i < input.length; i++) {
 			char c = input[i];
 			switch (c) {
 			case '(':
