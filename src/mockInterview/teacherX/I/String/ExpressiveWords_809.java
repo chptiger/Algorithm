@@ -53,8 +53,25 @@ public class ExpressiveWords_809 {
 			return -1;
 		}
 		
-		
-		return 0;
+		RLE input = new RLE(s);
+		int result = 0;
+		for(String word : words) {
+			RLE wordToCheck = new RLE(word);
+			if(!input.key.equals(wordToCheck.key)) {
+				continue;
+			}
+			for(int i = 0; i < input.key.length(); i++) {
+				int c1 = input.count.get(i);
+				int c2 = wordToCheck.count.get(i);
+				if(c1 < 3 && c1 != c2 || c1 < c2) {
+					break;
+				} 				
+				if(i == input.key.length() - 1) {
+					result++;
+				}
+			}
+		}
+		return result;
 	}
 }
 
@@ -62,6 +79,10 @@ public class ExpressiveWords_809 {
  *  Run Length Encoding
  *  
  *  save head of string in every group with count number in the RLE class
+ *  
+ *  S = "heeellooo"
+ *  
+ *  TODO build new class vs HashMap
  */
 class RLE {
 	String key;
@@ -72,11 +93,13 @@ class RLE {
 		count = new ArrayList<>();
 		
 		char[] input = s.toCharArray();
+		int pre = -1; // how to count the continual same char of the string
 		for(int i = 0; i < input.length; i++) {
-			if() {
+			if(i == input.length - 1 || input[i] != input[i+1]) { 	
 				sb.append(input[i]);
-				count.add( );
-			}
+				count.add(i - pre);
+				pre = i;
+			} 
 		}
 		key = sb.toString();
 	}
