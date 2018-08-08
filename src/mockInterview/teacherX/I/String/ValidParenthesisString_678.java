@@ -1,4 +1,4 @@
-package teacherX.mockInterview.String;
+package mockInterview.teacherX.I.String;
 
 import org.junit.Assert;
 import org.junit.Test;

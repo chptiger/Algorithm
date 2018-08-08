@@ -1,4 +1,4 @@
-package teacherX.mockInterview.String;
+package mockInterview.teacherX.I.String;
 
 import java.util.ArrayList;
 import java.util.List;

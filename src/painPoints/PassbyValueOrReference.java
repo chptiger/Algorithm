@@ -1,4 +1,4 @@
-package clearConfuse;
+package painPoints;
 
 import org.junit.Test;
 
