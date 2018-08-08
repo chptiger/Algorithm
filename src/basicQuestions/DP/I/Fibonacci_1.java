@@ -3,7 +3,7 @@ package basicQuestions.DP.I;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Fibonacci {
+public class Fibonacci_1 {
 	
 	@Test
 	public void test_fibonacci() {
