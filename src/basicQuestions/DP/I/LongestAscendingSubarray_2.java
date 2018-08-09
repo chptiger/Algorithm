@@ -1,4 +1,4 @@
-package io.javabrains.unit1;
+package basicQuestions.DP.I;
 
 import org.junit.Assert;
 import org.junit.Test;
