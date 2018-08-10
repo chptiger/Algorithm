@@ -1,4 +1,4 @@
-package test;
+package basicQuestions.DP.II;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,22 +28,30 @@ public class LargestSumSubarray_1 {
         Assert.assertEquals(-1, largestSum(new int[]{-2, -1, -3}));
 	}
 	
-//	TODO to check it again
+////	TODO to check it again
 	private static int largestSum(int[] input) {
 		int[] result = new int[input.length];
 		result[0] = input[0];
-		int max = Integer.MIN_VALUE;
-		int tmp = Integer.MIN_VALUE;
+		int max = input[0];
 		for (int i = 1; i < input.length; i++) {
 			if (input[i] > 0) {
 				result[i] = result[i - 1] + input[i];
 			} else if (result[i - 1] + input[i] > 0) {
 				result[i] = result[i - 1] + input[i];
 			} else {//result[i - 1] + input[i] <= 0
-				result[i] = Math.max(Math.max(result[i - 1], input[i]), //0, -1, -2, -3
-						Math.max(result[i - 1] + input[i], input[i]));  //-2, -1, -3
+				result[i] = Math.max(result[i - 1] + input[i], input[i]);
 			}
 			max = Math.max(max, result[i]);
+		}
+		return max;
+	}
+	
+	private static int largestSum1(int[] input) {
+		int max = input[0];
+		int tmp = input[0];
+		for (int i = 1; i < input.length; i++) {
+			tmp = Math.max(tmp + input[i], input[i]);
+			max = Math.max(max, tmp);
 		}
 		return max;
 	}
