@@ -41,29 +41,32 @@ public class LongestPalindromicSubstring_5 {
 	如果i和j不相邻，即i - j >= 2时，除了判断s[i]和s[j]相等之外，dp[j + 1][i - 1]若为真，就是回文串，
 	通过以上分析，可以写出递推式如下：
 
-	dp[i, j] = 1                                     if i == j
+	dp[i, j] = 1                                         if i == j
 
            = s[i] == s[j]                                if j = i + 1
 
            = s[i] == s[j] && dp[i + 1][j - 1]            if j > i + 1   
 	**/
 	private static String longestPalindromicSubsringDP(char[] input) {
-		if(input == null) {
-			return null;
+		if(input == null || input.length == 0) {
+			return "";
+		}
+		if(input.length == 1) {
+			return new String(input);
 		}
 		boolean[][] isP = new boolean[input.length][input.length];
 		int max = 0, start = 0, end = 0;
 		for(int i = 0; i < input.length; i++) {
-			for(int j = i; j < input.length; j++) {
-				isP[i][j] = input[i] == input[j] && (input[i + 1] == input[j - 1] || j - i < 2)
-					if(isP[i][j] && j - i + 1 > max) {
-						max = j - i + 1;
-						start = i;
-						end = j;
+			for(int j = 0; j <= i; j++) {
+				isP[i][j] = input[i] == input[j] && (i - j < 2 || isP[i - 1][j + 1]);
+					if(isP[i][j] && i - j + 1 > max) {
+						max = i - j + 1;
+						start = j;
+						end = i;
 					}
 					
 			}
 		}
-		return new String(input).subString(i, j + 1);
+		return new String(input).substring(start, end + 1);
 	}
 }
