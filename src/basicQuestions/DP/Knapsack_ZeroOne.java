@@ -32,7 +32,7 @@ public class Knapsack_ZeroOne {
 //	m: 背包能够容纳的最大重量
 //	n: 计划向背包中放入物品的个数
 	public static int[][] pack(int m, int n, int[] w, int[] p){
-		// tmp[i][j]: 前i件物品恰放入一个重量为j的背包可以获得的最大价值
+//  tmp[i][j]: 前i件物品恰放入一个重量为j的背包可以获得的最大价值
 		int [][] tmp = new int[n+1][m+1];
 		
 		for(int i = 0; i< m+1; i++){
@@ -46,8 +46,6 @@ public class Knapsack_ZeroOne {
 		for( int i = 1; i < n + 1; i++){
 			for( int j = 1; j < m + 1; j++){
 //				当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，c[i][j]为下列两种情况之一：  
-//				j:代表当前背包能够放入的最大重量
-//				将物品i放入容量为j的背包中，最大值是多少。
 				if( w[i-1] <= j ){
 					if(tmp[i-1][j] < tmp[i-1][j-w[i-1]]+p[i-1]){
 						//(2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以c[i][j]为c[i-1][j-w[i-1]]的值加上当前物品i的价值 
