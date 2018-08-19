@@ -54,7 +54,7 @@ public class Knapsack_ZeroOne {
 						//(1)物品i不放入背包中，所以c[i][j]为c[i-1][j]的值
 						tmp[i][j] = tmp[i-1][j];
 					}
-				}else{
+				} else {
 					//当物品为i件重量为j时，如果第i件的重量(w[i-1])大于重量j时， c[i][j]为c[i-1][j]的值
 					tmp[i][j] = tmp[i-1][j];
 				}
