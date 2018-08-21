@@ -1,6 +1,6 @@
 package Algorithm.LinkedList;
 
-import pojo.ListNode;
+import entities.ListNode;
 
 /**
  * 

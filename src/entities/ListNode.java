@@ -1,4 +1,4 @@
-package pojo;
+package entities;
 
 public class ListNode {
 	public int value;

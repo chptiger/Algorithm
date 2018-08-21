@@ -1,6 +1,6 @@
 package tree;
 
-import pojo.TreeNode;
+import entities.TreeNode;
 
 public class RevortBinaryTree {
 	public TreeNode invertTree(TreeNode root) {

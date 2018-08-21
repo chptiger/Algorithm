@@ -1,6 +1,6 @@
 package Algorithm.LinkedList;
 
-import pojo.ListNode;
+import entities.ListNode;
 
 /**
 Reverse a singly-linked list.

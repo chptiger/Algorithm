@@ -2,7 +2,7 @@ package basicQuestions.Recursion.II;
 
 import org.junit.Test;
 
-import pojo.ListNode;
+import entities.ListNode;
 
 /**
 Reverse pairs of elements in a singly-linked list.

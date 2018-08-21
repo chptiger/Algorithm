@@ -3,7 +3,7 @@ package utilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import pojo.TreeNode;
+import entities.TreeNode;
 
 public class TreeUtil {
 	

@@ -3,7 +3,7 @@ package basicQuestions.Recursion.II;
 import org.junit.Assert;
 import org.junit.Test;
 
-import pojo.TreeNode;
+import entities.TreeNode;
 import utilities.TreeUtil;
 
 /**

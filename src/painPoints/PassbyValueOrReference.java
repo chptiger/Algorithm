@@ -2,7 +2,7 @@ package painPoints;
 
 import org.junit.Test;
 
-import pojo.TreeNode;
+import entities.TreeNode;
 
 /**
  * https://www.javaworld.com/article/2077424/learn-java/learn-java-does-java-pass-by-reference-or-pass-by-value.html

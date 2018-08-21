@@ -1,6 +1,6 @@
 package Algorithm.Tree;
 
-import pojo.TreeNode;
+import entities.TreeNode;
 
 /**
 Check if a given binary tree is balanced. 

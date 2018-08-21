@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import pojo.TreeNode;
+import entities.TreeNode;
 
 /**
 Get the list of list of keys in a given binary tree layer by layer. 

@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import entities.TreeNode;
 import junit.framework.Assert;
-import pojo.TreeNode;
 import utilities.TreeUtil;
 
 /*Description

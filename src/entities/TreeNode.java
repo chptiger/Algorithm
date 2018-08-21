@@ -1,4 +1,4 @@
-package pojo;
+package entities;
 
 public class TreeNode {
 	public int key;
