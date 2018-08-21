@@ -21,7 +21,8 @@ Solution:
 	https://leetcode.com/problems/longest-palindromic-substring/solution/
 	http://www.cnblogs.com/grandyang/p/4464476.html
 	https://www.cnblogs.com/yuzhangcmu/p/4189068.html
-
+	详细图解：
+			http://windliang.cc/2018/08/05/leetCode-5-Longest-Palindromic-Substring/
 
  * @author xx65
  *
@@ -32,6 +33,7 @@ public class LongestPalindromicSubstring_5 {
 	public void test_longestPalindromicSubsring() {
 		String input = "babad";
 		Assert.assertEquals("bab", longestPalindromicSubsringDP(input.toCharArray()));
+		Assert.assertEquals("aba", longestPalindromicSubsringExpandAroundCenter(input.toCharArray()));
 	}
 	/**
 	此题还可以用动态规划Dynamic Programming来解，根Palindrome Partitioning II 拆分回文串之二的解法很类似，
@@ -68,5 +70,33 @@ public class LongestPalindromicSubstring_5 {
 			}
 		}
 		return new String(input).substring(start, end + 1);
+	}
+	
+	private static String longestPalindromicSubsringExpandAroundCenter(char[] input) {
+		
+		if(input.length <= 0) {
+			return new String(input);
+		}
+		int start = 0, end = 0;
+		for(int i = 0; i < input.length; i++) {
+			int len1 = expandAroundCenter(input, i, i);
+			int len2 = expandAroundCenter(input, i, i + 1);
+			int len = Math.max(len1, len2);
+			if(len > end - start) {// it's cover both odd and even of len
+				start = i - (len - 1) / 2;
+				end = i + len / 2; 
+			}
+		}
+		return new String(input).substring(start,end +1);
+	}
+	
+	private static int expandAroundCenter(char[] input, int l, int r) {
+		int start = l, end = r;
+		while (start >= 0 && end < input.length && input[start] == input[end]) {
+			start--;
+			end++;
+		}
+		return end - start - 1;
+		// why did not return end - start? we will start from i, try to get the length between i and start, i and end.
 	}
 }
