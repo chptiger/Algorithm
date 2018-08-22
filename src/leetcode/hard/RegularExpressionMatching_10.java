@@ -64,6 +64,7 @@ public class RegularExpressionMatching_10 {
 		Assert.assertEquals(true, regulareExpressionMatching_recursion("ab", ".*"));
 	}
 	
+//	https://www.youtube.com/watch?v=l3hda49XcDE&list=PLrmLmBdmIlpuE5GEMDXWf0PWbBD9Ga1lO
 	private static boolean regulareExpressionMatching(String s, String p) {
 		boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
 		
@@ -94,6 +95,8 @@ public class RegularExpressionMatching_10 {
 	
 	// s.substring(): n 
 //	bad case: binary tree: (s + p) * 2 ^ (s + p/2)
+//	 https://leetcode.com/problems/regular-expression-matching/solution/
+//	https://www.jianshu.com/p/85f3e5a9fcda
 	private static boolean regulareExpressionMatching_recursion(String s, String p) {
 		if(p == null || p.length() == 0) {
 			return (s == null || s.length() == 0);
