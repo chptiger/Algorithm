@@ -58,6 +58,10 @@ public class RegularExpressionMatching_10 {
 		Assert.assertEquals(false, regulareExpressionMatching("mississippi", "mis*is*p*."));
 		Assert.assertEquals(true, regulareExpressionMatching("aab", "c*a*b"));
 		Assert.assertEquals(true, regulareExpressionMatching("ab", ".*"));
+		
+		Assert.assertEquals(false, regulareExpressionMatching_recursion("mississippi", "mis*is*p*."));
+		Assert.assertEquals(true, regulareExpressionMatching_recursion("aab", "c*a*b"));
+		Assert.assertEquals(true, regulareExpressionMatching_recursion("ab", ".*"));
 	}
 	
 	private static boolean regulareExpressionMatching(String s, String p) {
@@ -86,5 +90,21 @@ public class RegularExpressionMatching_10 {
 			}
 		}
 		return dp[s.length()][p.length()];
+	}
+	
+	// s.substring(): n 
+//	bad case: binary tree: (s + p) * 2 ^ (s + p/2)
+	private static boolean regulareExpressionMatching_recursion(String s, String p) {
+		if(p == null || p.length() == 0) {
+			return (s == null || s.length() == 0);
+		}
+		
+		boolean firstMatch = s.length() > 0 && s.charAt(0) == p.charAt(0) || p.charAt(0) == '.';
+		
+		if(p.length() >= 2 && p.charAt(1) == '*') {
+			return regulareExpressionMatching(s, p.substring(2))|| firstMatch && regulareExpressionMatching(s.substring(1), p);
+		} else {
+			return firstMatch && regulareExpressionMatching(s.substring(1), p.substring(1));
+		}
 	}
 }
