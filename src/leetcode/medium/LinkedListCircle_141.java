@@ -1,5 +1,7 @@
 package leetcode.medium;
 
+import entities.ListNode;
+
 /*
 Given a linked list, determine if it has a cycle in it.
 
@@ -38,12 +40,3 @@ public class LinkedListCircle_141{
     }
 	
 }
-
-class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) {
-          val = x;
-          next = null;
-      }
-	}

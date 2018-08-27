@@ -26,15 +26,15 @@ public class passNewObjectToMethod {
 	@Test
 	public void test_reverseString() {
 		String input = "abc";
-		Assert.assertEquals("cba", reverse(input, 0, input.length() - 1));
+		Assert.assertEquals("cba", reverse(input.toCharArray(), 0, input.length() - 1));
 	}
 	
-	private static String reverse(String input, int start, int end) {
+	private static String reverse(char[] input, int start, int end) {
 		if(start >= end) {
-			return input;
+			return new String(input);
 		}
 		
-		utilities.StringUtil.swap(input.toCharArray(), start, end);
+		utilities.StringUtil.swap(input, start, end);
 		return reverse(input, start + 1, end - 1);
 	}
 }

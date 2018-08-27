@@ -1,8 +1,8 @@
 package basicQuestions.Recursion.II;
 
-import org.junit.Test;
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.Assert;
 import utilities.StringUtil;
 
 /**
