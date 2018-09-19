@@ -11,39 +11,28 @@ For example, if there are 4 stones in the heap, then you will never win the game
 no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.
 */
 package leetcode.easy;
-public class Nim_Game_292{
-	public static void main(String [] args){
-		int n=100;
+
+public class Nim_Game_292 {
+	public static void main(String[] args) {
+		int n = 100;
 		System.out.println(remove(n));
-		
+
 	}
-	
-	public static boolean remove(int n){
+
+	public static boolean remove(int n) {
 		/*
-		boolean flag = true;
-		if(n <= 0){
-			return false;
-		} 
-		
-		if(n <= 3 && n > 0){
-			return flag = true;
-		}
-		
-		if(n == 4){
-			return flag = false;
-		}
-		
-		if(n == 5){
-			return flag = true;
-		}
-		
-		if(n == 6){
-			return flag = true;
-		}
-		else{
-			
-		}
-		*/
-		return n%4 == 0? false:true;
+		 * boolean flag = true; if(n <= 0){ return false; }
+		 * 
+		 * if(n <= 3 && n > 0){ return flag = true; }
+		 * 
+		 * if(n == 4){ return flag = false; }
+		 * 
+		 * if(n == 5){ return flag = true; }
+		 * 
+		 * if(n == 6){ return flag = true; } else{
+		 * 
+		 * }
+		 */
+		return n % 4 == 0 ? false : true;
 	}
 }

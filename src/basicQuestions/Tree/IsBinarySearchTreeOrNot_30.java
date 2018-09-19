@@ -3,20 +3,15 @@ package Algorithm.Tree;
 import entities.TreeNode;
 
 /**
-Determine if a given binary tree is binary search tree.
-
-Assumptions
-There are no duplicate keys in binary search tree.
-
-You can assume the keys stored in the binary search tree can not be Integer.MIN_VALUE or Integer.MAX_VALUE.
-
-Corner Cases
-What if the binary tree is null? Return true in this case.
-	  5
-	/   \
-   3     8
-  / \
- 1   4
+ * Determine if a given binary tree is binary search tree.
+ * 
+ * Assumptions There are no duplicate keys in binary search tree.
+ * 
+ * You can assume the keys stored in the binary search tree can not be
+ * Integer.MIN_VALUE or Integer.MAX_VALUE.
+ * 
+ * Corner Cases What if the binary tree is null? Return true in this case. 5 / \
+ * 3 8 / \ 1 4
  *
  */
 public class IsBinarySearchTreeOrNot_30 {
@@ -45,7 +40,6 @@ public class IsBinarySearchTreeOrNot_30 {
 		if (root.key < min || root.key > max) {
 			return false;
 		}
-		return isBinarySearchTree(root.left, root.key, min)
-				&& isBinarySearchTree(root.right, max, root.key);
+		return isBinarySearchTree(root.left, root.key, min) && isBinarySearchTree(root.right, max, root.key);
 	}
 }

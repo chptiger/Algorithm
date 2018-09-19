@@ -4,13 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Shuffling 
+ * Shuffling
  * 
- * e.g.
- * ABCDEFG1234567 -> A1B2C3D4E5F6G7
+ * e.g. ABCDEFG1234567 -> A1B2C3D4E5F6G7
  * 
  * explanation:
- * https://docs.google.com/document/d/1Ic2DZ6fVZcbz9Y-OcEhc9-UUflLOvMcn5p4TOcGZO7Y/edit 
+ * https://docs.google.com/document/d/1Ic2DZ6fVZcbz9Y-OcEhc9-UUflLOvMcn5p4TOcGZO7Y/edit
  * 
  * @author xx65
  *

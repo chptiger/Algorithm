@@ -14,20 +14,20 @@ There are many calls to sumRange function.
 
 */
 
-public class RangeSumQuery_Immut_303{
-	public static void main(String[] args){
-		int[] nums = {-2, 0, 3, -5, 2, -1};
+public class RangeSumQuery_Immut_303 {
+	public static void main(String[] args) {
+		int[] nums = { -2, 0, 3, -5, 2, -1 };
 		int i = 2;
 		int j = 5;
-		int sum = sumRange( i, j);
+		int sum = sumRange(i, j);
 		System.out.println(sum);
 	}
-	
+
 	public NumArray(int[] nums) {
         
     }
 
-    public static int sumRange(int i, int j) {
-        
-    }
+	public static int sumRange(int i, int j) {
+
+	}
 }

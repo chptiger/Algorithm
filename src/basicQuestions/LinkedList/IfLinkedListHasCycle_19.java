@@ -3,7 +3,9 @@ package Algorithm.LinkedList;
 import entities.ListNode;
 
 /**
- * Check if a given linked list has a cycle. Return true if it does, otherwise return false.
+ * Check if a given linked list has a cycle. Return true if it does, otherwise
+ * return false.
+ * 
  * @author Thomas
  *
  */
@@ -20,18 +22,18 @@ public class IfLinkedListHasCycle_19 {
 		n4.next = n5;
 		System.out.println(isLinkedListHasCircle(n1));
 	}
-	
+
 	public static boolean isLinkedListHasCircle(ListNode head) {
-		if( head == null || head.next == null || head.next.next == null){
+		if (head == null || head.next == null || head.next.next == null) {
 			return false;
 		}
-		
+
 		ListNode slow = head;
 		ListNode fast = head;
-		while(fast.next != null && fast.next.next != null) {
+		while (fast.next != null && fast.next.next != null) {
 			slow = slow.next;
 			fast = fast.next.next;
-			if(slow == fast) {
+			if (slow == fast) {
 				return true;
 			}
 		}

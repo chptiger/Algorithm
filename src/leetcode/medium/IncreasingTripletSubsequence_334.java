@@ -1,4 +1,5 @@
 package leetcode.medium;
+
 /*
 Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
 
@@ -18,13 +19,13 @@ true
 [2,1,5,0,4,6]
 true
 */
-public class IncreasingTripletSubsequence_334{
-	public static void main(String[] args){
-		int[] nums = {2,1,5,0,4,6};
-		boolean flag = increasingTriplet( nums );
-		System.out.println( flag );
+public class IncreasingTripletSubsequence_334 {
+	public static void main(String[] args) {
+		int[] nums = { 2, 1, 5, 0, 4, 6 };
+		boolean flag = increasingTriplet(nums);
+		System.out.println(flag);
 	}
-	
+
 	public static boolean increasingTriplet(int[] nums) {
         if( nums == null || nums.length <3 ) return false;
 		int max1 = Integer.MAX_VALUE;
@@ -44,21 +45,22 @@ public class IncreasingTripletSubsequence_334{
 		0 4 6
 		return false;
     }
-	
+
 	// understand totally wronog, index of i j k do not need continus....
 	public static boolean increasingTriplet_(int[] nums) {
-        if( nums == null || nums.length <3 ) return false;
+		if (nums == null || nums.length < 3)
+			return false;
 		int i = 0, j = 0;
-		for( int m = 0; m < nums.length - 2; m++){
+		for (int m = 0; m < nums.length - 2; m++) {
 			i = m + 1;
 			j = i + 1;
-			System.out.println( nums[m] );
-			System.out.println( nums[i] );
-			System.out.println( nums[j] );
-			if( nums[i] > nums[m] && nums[j] > nums[i]) {
+			System.out.println(nums[m]);
+			System.out.println(nums[i]);
+			System.out.println(nums[j]);
+			if (nums[i] > nums[m] && nums[j] > nums[i]) {
 				return true;
 			}
 		}
 		return false;
-    }
+	}
 }

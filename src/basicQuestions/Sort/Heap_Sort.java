@@ -83,6 +83,6 @@ public class Heap_Sort {
 		heap_size = a.length;
 		heapSort(a);
 		System.out.println("after sorted" + Arrays.toString(a));
-		
+
 	}
 }

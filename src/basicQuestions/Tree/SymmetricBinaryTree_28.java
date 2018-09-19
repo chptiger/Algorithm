@@ -3,38 +3,22 @@ package Algorithm.Tree;
 import entities.TreeNode;
 
 /**
-Check if a given binary tree is symmetric.
- 
-Examples
- 		5
-      /    \
-    3        3
-  /   \    /   \
-1      4  4      1
-is symmetric.
-
-        5
-      /    \
-    3        3
-  /   \    /   \
-1      4  1      4
-is not symmetric.
-
-Corner Cases
-What if the binary tree is null? Return true in this case.
-How is the binary tree represented?
-We use the level order traversal sequence with a special symbol "#" denoting the null node.
-
-For Example:
-The sequence [1, 2, 3, #, #, 4] represents the following binary tree:
-
-    1
-  /   \
- 2     3
-      /
-    4
-    
+ * Check if a given binary tree is symmetric.
+ * 
+ * Examples 5 / \ 3 3 / \ / \ 1 4 4 1 is symmetric.
+ * 
+ * 5 / \ 3 3 / \ / \ 1 4 1 4 is not symmetric.
+ * 
+ * Corner Cases What if the binary tree is null? Return true in this case. How
+ * is the binary tree represented? We use the level order traversal sequence
+ * with a special symbol "#" denoting the null node.
+ * 
+ * For Example: The sequence [1, 2, 3, #, #, 4] represents the following binary
+ * tree:
+ * 
+ * 1 / \ 2 3 / 4
  *
+ * 
  */
 public class SymmetricBinaryTree_28 {
 	public static void main(String[] args) {
@@ -57,15 +41,15 @@ public class SymmetricBinaryTree_28 {
 	/**
 	 * check every node's left child and right child
 	 */
-	public static boolean isSymmetricBinaryTree(TreeNode root) { 
+	public static boolean isSymmetricBinaryTree(TreeNode root) {
 		if (root == null) {
 			return true;
 		}
 		return isSymmetric(root.left, root.right);
 	}
-	
+
 	public static boolean isSymmetric(TreeNode one, TreeNode two) {
-		if(one == null && two == null) {
+		if (one == null && two == null) {
 			return true;
 		} else if (one == null || two == null) {
 			return false;

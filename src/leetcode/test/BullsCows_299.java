@@ -20,29 +20,32 @@ cow指的是guess中的数在secret中出现过，但是位置不同。
 同理，当g计数-1，并且发现g的计数≥0，说明有secret字符可匹配为bull，也应当把bull计数加一，这种算法比较高效。
  */
 public class BullsCows_299 {
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		String secret = "1012";
-		String guess = 	"2034";
-		
-		String hints = getHint(secret , guess);
+		String guess = "2034";
+
+		String hints = getHint(secret, guess);
 		System.out.println(hints);
 	}
-	
+
 	public static String getHint(String secret, String guess) {
-	    int bulls = 0;
-	    int cows = 0;
-	    int[] numbers = new int[10];
-	    for (int i = 0; i<secret.length(); i++) {
-	        int s = Character.getNumericValue(secret.charAt(i));
-	        int g = Character.getNumericValue(guess.charAt(i));
-	        if (s == g) bulls++;
-	        else {
-	            if (numbers[s] < 0) cows++;
-	            if (numbers[g] > 0) cows++;
-	            numbers[s] ++;
-	            numbers[g] --;
-	        }
-	    }
-	    return bulls + "A" + cows + "B";
+		int bulls = 0;
+		int cows = 0;
+		int[] numbers = new int[10];
+		for (int i = 0; i < secret.length(); i++) {
+			int s = Character.getNumericValue(secret.charAt(i));
+			int g = Character.getNumericValue(guess.charAt(i));
+			if (s == g)
+				bulls++;
+			else {
+				if (numbers[s] < 0)
+					cows++;
+				if (numbers[g] > 0)
+					cows++;
+				numbers[s]++;
+				numbers[g]--;
+			}
+		}
+		return bulls + "A" + cows + "B";
 	}
 }

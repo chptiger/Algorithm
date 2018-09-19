@@ -32,32 +32,35 @@ public class NumArray {
 http://my.oschina.net/Tsybius2014/blog/528708 
 */
 
-public class NumArray_303{
-	static int[] sum ;
-	public static void main(String[] args){
-		
-		int[] tmp = {-2, 0, 3, -5, 2, -1};
-		
+public class NumArray_303 {
+	static int[] sum;
+
+	public static void main(String[] args) {
+
+		int[] tmp = { -2, 0, 3, -5, 2, -1 };
+
 		int i = 2;
 		int j = 5;
 		NumArray_303(tmp);
 		NumArray_303 numArray = new NumArray_303();
-		
-		int re = NumArray_303.sumRange( i, j);
+
+		int re = NumArray_303.sumRange(i, j);
 		System.out.println(re);
 	}
-	
-	 static void NumArray_303(int[] nums) {
-		sum = new int[nums.length];
-		if(nums.length > 0) sum[0] = nums[0];
-		for(int i = 1; i < nums.length; i++){
-			sum[i] =sum[i-1] + nums[i]; 
-		}
-		
-    }
 
-    public static int sumRange(int i, int j) {
-       if( i == 0) return sum[j];
-	   return sum[j] - sum[i -1];
-    }
+	static void NumArray_303(int[] nums) {
+		sum = new int[nums.length];
+		if (nums.length > 0)
+			sum[0] = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			sum[i] = sum[i - 1] + nums[i];
+		}
+
+	}
+
+	public static int sumRange(int i, int j) {
+		if (i == 0)
+			return sum[j];
+		return sum[j] - sum[i - 1];
+	}
 }

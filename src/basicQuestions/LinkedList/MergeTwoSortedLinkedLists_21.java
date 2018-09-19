@@ -3,12 +3,13 @@ package Algorithm.LinkedList;
 import entities.ListNode;
 
 /**
-Given a linked list and a target value T, partition it such that all nodes less than T are listed before the nodes larger than or equal to target value T. 
-The original relative order of the nodes in each of the two partitions should be preserved.
-Examples
-L = 2 -> 4 -> 3 -> 5 -> 1 -> null, T = 3, is partitioned to 2 -> 1 -> 4 -> 3 -> 5 -> null
-
-  * @author Thomas
+ * Given a linked list and a target value T, partition it such that all nodes
+ * less than T are listed before the nodes larger than or equal to target value
+ * T. The original relative order of the nodes in each of the two partitions
+ * should be preserved. Examples L = 2 -> 4 -> 3 -> 5 -> 1 -> null, T = 3, is
+ * partitioned to 2 -> 1 -> 4 -> 3 -> 5 -> null
+ * 
+ * @author Thomas
  *
  */
 public class MergeTwoSortedLinkedLists_21 {
@@ -26,12 +27,12 @@ public class MergeTwoSortedLinkedLists_21 {
 		n5.next = n6;
 		n6.next = n7;
 		ListNode result = mergeTwoSortedLinkedLists(n1, n5);
-		while(result!=null) {
+		while (result != null) {
 			System.out.println(result.value);
 			result = result.next;
 		}
 	}
-	
+
 	public static ListNode mergeTwoSortedLinkedLists(ListNode head1, ListNode head2) {
 		ListNode dumpNode = new ListNode(0);
 		ListNode cur = dumpNode;
@@ -45,13 +46,13 @@ public class MergeTwoSortedLinkedLists_21 {
 			}
 			cur = cur.next;
 		}
-		
+
 		if (head2 != null) {
 			cur.next = head2;
 		} else {
 			cur.next = head1;
 		}
-		
-     return dumpNode.next;
+
+		return dumpNode.next;
 	}
 }

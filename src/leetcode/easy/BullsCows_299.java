@@ -1,4 +1,5 @@
 package leetcode.easy;
+
 /*
 You are playing the following Bulls and Cows game with your friend: 
 You write down a number and ask your friend to guess what the number is. 
@@ -33,34 +34,38 @@ Expected: "0A0B"
 reason:
  the guess digits that in wrong positions should also be among secret digits.
 */
-public class BullsCows_299{
-	public static void main(String[] args){
+public class BullsCows_299 {
+	public static void main(String[] args) {
 		String secret = "1021";
 		String guess = "1234";
-		
-		String hints = BullsCows(secret , guess);
+
+		String hints = BullsCows(secret, guess);
 		System.out.println(hints);
 	}
-	
-	public static String BullsCows(String secret , String guess){
+
+	public static String BullsCows(String secret, String guess) {
 		int A = 0;
 		int B = 0;
 		int[] numbers = new int[10];
-		if(secret.length() != guess.length()) return null;
-		for(int i = 0; i < secret.length(); i++){
-			 int s = Character.getNumericValue(secret.charAt(i));
-	         int g = Character.getNumericValue(guess.charAt(i));
-			if(s == g) A++;
-			else{
-				
+		if (secret.length() != guess.length())
+			return null;
+		for (int i = 0; i < secret.length(); i++) {
+			int s = Character.getNumericValue(secret.charAt(i));
+			int g = Character.getNumericValue(guess.charAt(i));
+			if (s == g)
+				A++;
+			else {
+
 				numbers[s]++;
 				numbers[g]--;
-				
-				if(numbers[s] <= 0) B++;
-				if(numbers[g] >= 0)  B++;
+
+				if (numbers[s] <= 0)
+					B++;
+				if (numbers[g] >= 0)
+					B++;
 			}
 		}
-		return A+"A"+B+"B";
+		return A + "A" + B + "B";
 	}
 }
 

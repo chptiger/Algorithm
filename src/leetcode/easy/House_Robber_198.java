@@ -12,20 +12,21 @@ http://www.meetqun.com/thread-8777-1-1.html
 
 */
 package leetcode.easy;
-public class House_Robber_198{
-	public static void main(String[] args){
-		int[] a = {6,8,9,1,7,3,4};
-		max_Robber(a); 		// 26
-		
-		max_Robber_DP(a);	//26
+
+public class House_Robber_198 {
+	public static void main(String[] args) {
+		int[] a = { 6, 8, 9, 1, 7, 3, 4 };
+		max_Robber(a); // 26
+
+		max_Robber_DP(a); // 26
 	}
-	
-	public static void max_Robber_DP(int[] a){
+
+	public static void max_Robber_DP(int[] a) {
 		int take = 0;
 		int nonTake = 0;
 		int maxProfit = 0;
-		
-		for(int i = 0; i< a.length; i++){
+
+		for (int i = 0; i < a.length; i++) {
 			take = nonTake + a[i];
 			System.out.println("take " + take);
 			nonTake = maxProfit;
@@ -33,41 +34,42 @@ public class House_Robber_198{
 			maxProfit = Math.max(take, nonTake);
 			System.out.println("maxProfit " + maxProfit);
 		}
-		System.out.println( maxProfit);
+		System.out.println(maxProfit);
 	}
-	
-	public static void max_Robber(int[] a){
+
+	public static void max_Robber(int[] a) {
 		int n = 0;
-		for(int i = 0; i<a.length; i+=2){
-			n +=a[i];
+		for (int i = 0; i < a.length; i += 2) {
+			n += a[i];
 		}
-		
+
 		int m = 0;
-		for(int i = 1; i<a.length; i+=2){
-			m +=a[i];
+		for (int i = 1; i < a.length; i += 2) {
+			m += a[i];
 		}
-		System.out.println(Math.max(m,n));
+		System.out.println(Math.max(m, n));
 	}
 }
 
 /*
-
-ÆäÊµ¾ÍÊÇÔÚÄ³¸öÊý×éÀïÃæÕÒÒ»¸öÐòÁÐ£¬ ÐòÁÐÀïÃæµÄÃ¿Ò»¸öÔªËØ¶¼²»ÄÜÏàÁÚ£¬È»ºóÇóÆä×î´óºÍ 
-
-Õâ¸öÎÊÌâ¿ÉÒÔÓÃdpµÄË¼ÏëÀ´¿¼ÂÇ£¬ ¶ÔÓÚµÚn¸ö·¿¼äÎÒÃÇËùÄÜÓÐµÄÑ¡ÔñÊÇÍµºÍ²»Íµ:
- 
-ÄÇÃ´Èç¹ûÊÇ×ö¾ö¶¨ÊÇÍµ ÔòÉÏÒ»²½±ØÐëÊÇ²»Íµ ÄÇÃ´ ÕâÒ»²½µÄ¾ÍÊÇ dp[N] = num[i -1 ] + dpNonTake[N -1] , ¼ÙÉèdp[N] ±íÊ¾µÄÊÇÓÐN¸öÔªËØÊ±ºòµÄ×î´óÖµ×´Ì¬¡£ 
-
-Èç¹ûÊÇ²»Íµ£¬ ÄÇÃ´ÉÏÒ»²½¾ÍÎÞËùÎ½ÊÇ²»ÊÇÒÑ¾­Íµ¹ý£¬ËùÒÔ¾ÍcopyÎª dp[N] = dp[N -1 ]¼´¿É£¬
- 
-ËùÒÔ×Ü¶øÑÔÖ®Îª dp[N] = Math.max(dpNontake[N-1 ] + num¡¾i¡¿, dp[N-1] ); 
-
-ÒòÎªÃ¿Ò»ÂÖµü´úÖ»ÐèÒª´¥Åöµ½dp µÄÏàÁÚÁ½¸öÑ¡Ïî ËùÒÔ¿ÉÒÔ¿Õ¼äÑ¹ËõÎª Á½¸öÔªËØ¼´¿É¡£Ò»¸ö Îªtake Ò»¸öÎª nontake ºÍ µ½µ±Ç°µÄ×î´óÖµ¡£ ÄÇÃ´µü´úÎª£º
-
-take = nonTake + num¡¾i¡¿;  Íµ
-nonTake = maxProfit;    ²»Íµ 
-maxProfit = Math.max(take,nonTake); Çó×î´óÀûÈó
-
-Ê±¼ä¸´ÔÓ¶ÈÎªO(n) ¿Õ¼äÎªO(1) ÄÜÔËÐÐµÄ´úÂëÎª£º
-
-*/
+ * 
+ * ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿Ò»ï¿½ï¿½Ôªï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dpï¿½ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ ï¿½ï¿½ï¿½Úµï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Íµï¿½Í²ï¿½Íµ:
+ * 
+ * ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµ ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½Íµ ï¿½ï¿½Ã´ ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ dp[N] = num[i -1 ] +
+ * dpNonTake[N -1] , ï¿½ï¿½ï¿½ï¿½dp[N] ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½Ôªï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ×´Ì¬ï¿½ï¿½
+ * 
+ * ï¿½ï¿½ï¿½ï¿½Ç²ï¿½Íµï¿½ï¿½ ï¿½ï¿½Ã´ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¾ï¿½copyÎª dp[N] = dp[N -1 ]ï¿½ï¿½ï¿½É£ï¿½
+ * 
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½ï¿½ï¿½Ö®Îª dp[N] = Math.max(dpNontake[N-1 ] + numï¿½ï¿½iï¿½ï¿½, dp[N-1] );
+ * 
+ * ï¿½ï¿½ÎªÃ¿Ò»ï¿½Öµï¿½ï¿½ï¿½Ö»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½Ô¿Õ¼ï¿½Ñ¹ï¿½ï¿½Îª ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½É¡ï¿½Ò»ï¿½ï¿½ Îªtake Ò»ï¿½ï¿½Îª
+ * nontake ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+ * 
+ * take = nonTake + numï¿½ï¿½iï¿½ï¿½; Íµ nonTake = maxProfit; ï¿½ï¿½Íµ maxProfit =
+ * Math.max(take,nonTake); ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 
+ * Ê±ï¿½ä¸´ï¿½Ó¶ï¿½ÎªO(n) ï¿½Õ¼ï¿½ÎªO(1) ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ´ï¿½ï¿½ï¿½Îªï¿½ï¿½
+ * 
+ */

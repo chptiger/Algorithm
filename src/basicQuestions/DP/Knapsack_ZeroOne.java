@@ -1,4 +1,5 @@
 package basicQuestions.DP;
+
 /*
  * 将一个问题分解为子问题递归求解，且将中间结果保存以避免重复计算。
  * 通常用来求最优解，且最优解的局部也是最优的。求解过程产生多个决策序列，下一步总是依赖上一步的结果，自底向上的求解。
@@ -24,70 +25,68 @@ public class Knapsack_ZeroOne {
 		int p[] = { 4, 5, 6 };
 		Knapsack_ZeroOne pack01 = new Knapsack_ZeroOne();
 		int[][] tmp = pack01.pack(m, n, w, p);
-		pack01.print(tmp, w, m , n);
+		pack01.print(tmp, w, m, n);
 	}
-	
-//	w[i - 1]: 第 i 个物品的重量
-//	p[i - 1]: 第 i 个物品的价值
-//	m: 背包能够容纳的最大重量
-//	n: 计划向背包中放入物品的个数
-	public static int[][] pack(int m, int n, int[] w, int[] p){
-//  tmp[i][j]: 前i件物品恰放入一个重量为j的背包可以获得的最大价值
-		int [][] tmp = new int[n+1][m+1];
-		
-		for(int i = 0; i< m+1; i++){
+
+	// w[i - 1]: 第 i 个物品的重量
+	// p[i - 1]: 第 i 个物品的价值
+	// m: 背包能够容纳的最大重量
+	// n: 计划向背包中放入物品的个数
+	public static int[][] pack(int m, int n, int[] w, int[] p) {
+		// tmp[i][j]: 前i件物品恰放入一个重量为j的背包可以获得的最大价值
+		int[][] tmp = new int[n + 1][m + 1];
+
+		for (int i = 0; i < m + 1; i++) {
 			tmp[0][i] = 0;
 		}
-		
-		for(int i=1; i<n+1; i++){
+
+		for (int i = 1; i < n + 1; i++) {
 			tmp[i][0] = 0;
 		}
-		
-		for( int i = 1; i < n + 1; i++){
-			for( int j = 1; j < m + 1; j++){
-//				当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，c[i][j]为下列两种情况之一：  
-				if( w[i-1] <= j ){
-					if(tmp[i-1][j] < tmp[i-1][j-w[i-1]]+p[i-1]){
-						//(2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以c[i][j]为c[i-1][j-w[i-1]]的值加上当前物品i的价值 
-						tmp[i][j] = tmp[i-1][j-w[i-1]]+p[i-1];
-					}else{
-						//(1)物品i不放入背包中，所以c[i][j]为c[i-1][j]的值
-						tmp[i][j] = tmp[i-1][j];
+
+		for (int i = 1; i < n + 1; i++) {
+			for (int j = 1; j < m + 1; j++) {
+				// 当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，c[i][j]为下列两种情况之一：
+				if (w[i - 1] <= j) {
+					if (tmp[i - 1][j] < tmp[i - 1][j - w[i - 1]] + p[i - 1]) {
+						// (2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以c[i][j]为c[i-1][j-w[i-1]]的值加上当前物品i的价值
+						tmp[i][j] = tmp[i - 1][j - w[i - 1]] + p[i - 1];
+					} else {
+						// (1)物品i不放入背包中，所以c[i][j]为c[i-1][j]的值
+						tmp[i][j] = tmp[i - 1][j];
 					}
 				} else {
-					//当物品为i件重量为j时，如果第i件的重量(w[i-1])大于重量j时， c[i][j]为c[i-1][j]的值
-					tmp[i][j] = tmp[i-1][j];
+					// 当物品为i件重量为j时，如果第i件的重量(w[i-1])大于重量j时， c[i][j]为c[i-1][j]的值
+					tmp[i][j] = tmp[i - 1][j];
 				}
 			}
 		}
-		return tmp;		
-	} 
-	
-	public static void print(int[][] tmp, int m, int n){
-		for( int i = 0; i < n + 1; i++){
-			for( int j = 0; j < m + 1; j++){
-				System.out.print(" "+tmp[i][j]+" ");
+		return tmp;
+	}
+
+	public static void print(int[][] tmp, int m, int n) {
+		for (int i = 0; i < n + 1; i++) {
+			for (int j = 0; j < m + 1; j++) {
+				System.out.print(" " + tmp[i][j] + " ");
 			}
 			System.out.println();
 		}
 	}
-	
-	 
-	   public static void print(int c[][],int[] w, int m, int n){  
-          
-	        int x[] = new int[n];  
-	        //从最后一个状态记录c[n][m]开始逆推  
-	        for(int i = n;i>0;i--){  
-	            //如果c[i][m]大于c[i-1][m]，说明c[i][m]这个最优值中包含了w[i-1](注意这里是i-1，因为c数组长度是n+1)  
-	            if(c[i][m]>c[i-1][m]){  
-	                x[i-1] = 1;  
-	                m-=w[i-1];  
-	            }  
-	        }  
-	        for(int j = 0;j<n;j++)  
-	            System.out.println(x[j]);  
-	        //return x;  
-	    }
-	     
+
+	public static void print(int c[][], int[] w, int m, int n) {
+
+		int x[] = new int[n];
+		// 从最后一个状态记录c[n][m]开始逆推
+		for (int i = n; i > 0; i--) {
+			// 如果c[i][m]大于c[i-1][m]，说明c[i][m]这个最优值中包含了w[i-1](注意这里是i-1，因为c数组长度是n+1)
+			if (c[i][m] > c[i - 1][m]) {
+				x[i - 1] = 1;
+				m -= w[i - 1];
+			}
+		}
+		for (int j = 0; j < n; j++)
+			System.out.println(x[j]);
+		// return x;
+	}
 
 }

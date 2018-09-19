@@ -27,25 +27,25 @@ http://blog.csdn.net/u013027996/article/details/25128335
 
 */
 
-public class Count_Say_38{
-	public static void main(String[] args){
+public class Count_Say_38 {
+	public static void main(String[] args) {
 		int m = 13;
 		String s = countAndSay(m);
 		System.out.println(s);
 	}
-	
-	public static String countAndSay(int n){
+
+	public static String countAndSay(int n) {
 		String[] tmp = new String[n];
 		tmp[0] = "1";
-		for(int i = 1; i < n ; i++ ){
-			char[] arr = tmp[i-1].toCharArray();
+		for (int i = 1; i < n; i++) {
+			char[] arr = tmp[i - 1].toCharArray();
 			int len = arr.length;
 			StringBuilder sb = new StringBuilder();
 			int l = 0;
-			while(l < len) {
-				int j = l+1;
+			while (l < len) {
+				int j = l + 1;
 				int count = 1;
-				while(j < len && arr[l] == arr[j]){
+				while (j < len && arr[l] == arr[j]) {
 					count++;
 					j++;
 				}
@@ -55,7 +55,7 @@ public class Count_Say_38{
 			}
 			tmp[i] = sb.toString();
 		}
-		return tmp[n-1];
+		return tmp[n - 1];
 	}
-	
+
 }

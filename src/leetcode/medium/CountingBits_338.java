@@ -15,48 +15,48 @@ Can you do it like a boss? Do it without using any builtin function like __built
 package leetcode.medium;
 
 import java.util.Arrays;
-public class CountingBits_338{
-	public static void main(String[] args){
+
+public class CountingBits_338 {
+	public static void main(String[] args) {
 		int num = 5;
 		int[] res = countBits_(num);
 		System.out.println(Arrays.toString(res));
 	}
-	
+
 	public static int[] countBits(int num) {
-		int[] tmp = new int[num+1];
-		String[] tmp_str = new String[num+1];
-		for( int i = 0; i <= num; i++){
+		int[] tmp = new int[num + 1];
+		String[] tmp_str = new String[num + 1];
+		for (int i = 0; i <= num; i++) {
 			tmp[i] = i;
 			tmp_str[i] = Integer.toBinaryString(tmp[i]);
-			//System.out.println(tmp_str[i]);
+			// System.out.println(tmp_str[i]);
 			int count = 0;
-			for(int j = 0; j < tmp_str[i].length() ; j++){
-				
-				if(Integer.parseInt(String.valueOf(tmp_str[i].charAt(j))) == 1 ) {
+			for (int j = 0; j < tmp_str[i].length(); j++) {
+
+				if (Integer.parseInt(String.valueOf(tmp_str[i].charAt(j))) == 1) {
 					count++;
 				}
 			}
-			//System.out.println(count);
+			// System.out.println(count);
 			tmp[i] = count;
-			count=0;
+			count = 0;
 		}
-        return tmp;
-    }
-	
+		return tmp;
+	}
+
 	// dp
 	public static int[] countBits_(int num) {
 		int[] f = new int[num + 1];
-		for (int i=1; i<=num; i++) {
+		for (int i = 1; i <= num; i++) {
 			f[i] = i;
-			//System.out.println(f[i]);
+			// System.out.println(f[i]);
 			System.out.println(f[i >> 1]);// change int to binary bits, and right shift 1;
-			System.out.println( i & 1);
+			System.out.println(i & 1);
 			f[i] = f[i >> 1] + (i & 1);
 			System.out.println(f[i]);
 		}
-			
-		
-    return f;
-}
-	
+
+		return f;
+	}
+
 }

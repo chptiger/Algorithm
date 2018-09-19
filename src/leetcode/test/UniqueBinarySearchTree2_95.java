@@ -63,11 +63,11 @@ public class UniqueBinarySearchTree2_95 {
 	public static void main(String[] args) {
 		int n = 3;
 		List<TreeNode> res = generateTrees(n);
-		
-		for( int i = 0; i < res.size(); i++){
+
+		for (int i = 0; i < res.size(); i++) {
 			System.out.println(res.get(i).val);
 		}
-		
+
 	}
 
 	public static List<TreeNode> generateTrees(int n) {
@@ -109,12 +109,12 @@ public class UniqueBinarySearchTree2_95 {
 					root.left = lnode;
 					root.right = rnode;
 					list.add(root);
-					System.out.println("root value: "+root.val);
+					System.out.println("root value: " + root.val);
 				}
 			}
 
 		}
-		
+
 		return list;
 	}
 

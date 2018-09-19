@@ -9,6 +9,7 @@ Follow up:
 Could you do it without any loop/recursion in O(1) runtime?
 */
 package leetcode.easy;
+
 public class Add_Digits_258 {
 	public static void main(String[] args) {
 		int n = 33;

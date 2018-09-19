@@ -13,7 +13,7 @@ public class commonNumbers_Q3 {
 		int[] a = { 1, 3, 4, 6 };
 		int[] b = { 4, 5, 6 };
 		int[] res = commonNumber(a, b);
-//		System.out.println(Arrays.toString(res));
+		// System.out.println(Arrays.toString(res));
 		System.out.println(commonNumberBinarySearch(a, b));
 	}
 
@@ -36,23 +36,24 @@ public class commonNumbers_Q3 {
 
 	/*
 	 * TODO Hashtable vs HashMap
-	 * https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable
-	 * O(m + n)
+	 * https://stackoverflow.com/questions/40471/differences-between-hashmap-and-
+	 * hashtable O(m + n)
 	 */
 	public static String commonNumberHashtable(int[] a, int[] b) {
 		Hashtable<Integer, Integer> res = new Hashtable<>();
 		int al = a.length, bl = b.length;
 		StringBuilder sb = new StringBuilder();
-		int[] shortArray = a.length > b.length? b : a;
-		int[] longArray = a.length > b.length? a : b;;
-		
+		int[] shortArray = a.length > b.length ? b : a;
+		int[] longArray = a.length > b.length ? a : b;
+		;
+
 		addToHash(shortArray, res);
-		
+
 		Arrays.stream(longArray).forEach(ele -> {
-			if(res.containsKey(ele)) {
+			if (res.containsKey(ele)) {
 				sb.append(ele);
-//				consider duplicate elements in both array
-				if (res.get(ele) >= 2 ) {
+				// consider duplicate elements in both array
+				if (res.get(ele) >= 2) {
 					res.replace(ele, res.get(ele) - 1);
 				} else {
 					res.remove(ele);
@@ -61,31 +62,31 @@ public class commonNumbers_Q3 {
 		});
 		return sb.toString();
 	}
- 
+
 	public static Hashtable addToHash(int[] a, Hashtable res) {
 		Arrays.stream(a).forEach(e -> res.put(e, ((int) res.getOrDefault(e, 0)) + 1));
 		return res;
 	}
-	
+
 	/*
-	 * m << n
-	   O(mlog(n))
-	*/
+	 * m << n O(mlog(n))
+	 */
 	public static String commonNumberBinarySearch(int[] a, int[] b) {
 		StringBuilder sb = new StringBuilder();
 		int al = a.length, bl = b.length;
-		int[] shortArray = a.length > b.length? b : a;
-		int[] longArray = a.length > b.length? a : b;;
-		
+		int[] shortArray = a.length > b.length ? b : a;
+		int[] longArray = a.length > b.length ? a : b;
+		;
+
 		Arrays.stream(shortArray).forEach(ele -> {
-//			binary search
+			// binary search
 			if (binarySearchArray(longArray, ele) != -1) {
 				sb.append(ele);
 			}
 		});
 		return sb.toString();
 	}
-	
+
 	public static int binarySearchArray(int[] arr, int t) {
 		if (arr == null || arr.length < 1) {
 			return -1;

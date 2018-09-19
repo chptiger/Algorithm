@@ -26,36 +26,37 @@ Input: "2*3-4*5"
 (((2*3)-4)*5) = 10
 Output: [-34, -14, -10, -10, 10]
 */
-public class DiffWaysAddParentheses_241{
-	public static void main(String[] args){
+public class DiffWaysAddParentheses_241 {
+	public static void main(String[] args) {
 		String input = "2*3-4";
-		List<Integer> res = diffWaysToCompute( input );
-		System.out.println( res );
+		List<Integer> res = diffWaysToCompute(input);
+		System.out.println(res);
 	}
-	
+
 	public static List<Integer> diffWaysToCompute(String input) {
-		  List<Integer> res = new ArrayList<Integer>();
-	        for (int i = 0; i < input.length(); i++) {
-	            char c = input.charAt(i);
-	            if (c == '-' || c == '+' || c == '*') {
-	                String a = input.substring(0, i);
-	                String b = input.substring(i + 1);
-	                List<Integer> al = diffWaysToCompute(a);
-	                List<Integer> bl = diffWaysToCompute(b);
-	                for (int x : al) {
-	                    for (int y : bl) {
-	                        if (c == '-') {
-	                            res.add(x - y);
-	                        } else if (c == '+') {
-	                            res.add(x + y);
-	                        } else if (c == '*') {
-	                            res.add(x * y);
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	        if (res.size() == 0) res.add(Integer.valueOf(input));
-	        return res;
-    }
+		List<Integer> res = new ArrayList<Integer>();
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if (c == '-' || c == '+' || c == '*') {
+				String a = input.substring(0, i);
+				String b = input.substring(i + 1);
+				List<Integer> al = diffWaysToCompute(a);
+				List<Integer> bl = diffWaysToCompute(b);
+				for (int x : al) {
+					for (int y : bl) {
+						if (c == '-') {
+							res.add(x - y);
+						} else if (c == '+') {
+							res.add(x + y);
+						} else if (c == '*') {
+							res.add(x * y);
+						}
+					}
+				}
+			}
+		}
+		if (res.size() == 0)
+			res.add(Integer.valueOf(input));
+		return res;
+	}
 }

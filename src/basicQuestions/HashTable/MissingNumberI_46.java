@@ -14,12 +14,13 @@ A = {}, the missing number is 1
 public class MissingNumberI_46 {
 
 	public static void main(String[] args) {
-		int[] arr = {1,3,4};
+		int[] arr = { 1, 3, 4 };
 		System.out.println(missingNumber(arr, 4));
 	}
-	
+
 	public static int missingNumber(int[] arr, int n) {
-		if(arr.length <= 0) return 1;
+		if (arr.length <= 0)
+			return 1;
 		int result = Arrays.stream(arr).sum();
 		return (n * (n + 1)) / 2 - result;
 	}

@@ -4,9 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * 1. 0 as the denominator
- * 2. 1/3 as an integer? or float
- * 3. 0^0
+ * 1. 0 as the denominator 2. 1/3 as an integer? or float 3. 0^0
+ * 
  * @author xx65
  *
  */

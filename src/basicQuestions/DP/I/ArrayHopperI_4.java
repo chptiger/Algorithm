@@ -17,29 +17,29 @@ Examples
 */
 
 public class ArrayHopperI_4 {
-	
+
 	@Test
 	public void test_arrayHopper() {
-		int[] a1 = {2, 1, 0, 3, 4};
-		int[] a2 = {2, 3, 0, 3, 4};
-		
+		int[] a1 = { 2, 1, 0, 3, 4 };
+		int[] a2 = { 2, 3, 0, 3, 4 };
+
 		Assert.assertEquals(false, isArrayHopper(a1));
 		Assert.assertEquals(true, isArrayHopper(a1));
 	}
-	
+
 	private static boolean isArrayHopper(int[] input) {
-		
+
 		boolean[] M = new boolean[input.length];
-		
+
 		M[input.length - 1] = input[input.length - 1] > 0 ? true : false;
-		
+
 		int i = input.length - 2;
-		for(; i >= 0; i--) {
+		for (; i >= 0; i--) {
 			int j = i + 1;
-			for(; j <= input.length - 1; j++) {
-				if(M[j] && i + input[i] >= j) {
+			for (; j <= input.length - 1; j++) {
+				if (M[j] && i + input[i] >= j) {
 					M[i] = true;
-				} 
+				}
 			}
 		}
 		return M[0];

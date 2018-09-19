@@ -1,24 +1,23 @@
 package Algorithm.Sort;
 
 /**
- * Given an array of integers, sort the elements in the array in ascending order. The selection sort algorithm should be used to solve this problem.
-
-	Examples
-	
-	{1} is sorted to {1}
-	{1, 2, 3} is sorted to {1, 2, 3}
-	{3, 2, 1} is sorted to {1, 2, 3}
-	{4, 2, -3, 6, 1} is sorted to {-3, 1, 2, 4, 6}
-	Corner Cases
-	
-	What if the given array is null? In this case, we do not need to do anything.
-	What if the given array is of length zero? In this case, we do not need to do anything.
+ * Given an array of integers, sort the elements in the array in ascending
+ * order. The selection sort algorithm should be used to solve this problem.
+ * 
+ * Examples
+ * 
+ * {1} is sorted to {1} {1, 2, 3} is sorted to {1, 2, 3} {3, 2, 1} is sorted to
+ * {1, 2, 3} {4, 2, -3, 6, 1} is sorted to {-3, 1, 2, 4, 6} Corner Cases
+ * 
+ * What if the given array is null? In this case, we do not need to do anything.
+ * What if the given array is of length zero? In this case, we do not need to do
+ * anything.
+ * 
  * @author Thomas
  *
- *	从第一个元素开始，找到除了第一个元素之外的最小元素，与第一个元素互换。
-	从第二个元素开始，找到除了第一个，第二个元素之外的最小元素，与第二个元素互换。
-	O(time) = n^2
-	Space = 1
+ *         锟接碉拷一锟斤拷元锟截匡拷始锟斤拷锟揭碉拷锟斤拷锟剿碉拷一锟斤拷元锟斤拷之锟斤拷锟斤拷锟叫≡拷兀锟斤拷锟斤拷一锟斤拷元锟截伙拷锟斤拷锟斤拷
+ *         锟接第讹拷锟斤拷元锟截匡拷始锟斤拷锟揭碉拷锟斤拷锟剿碉拷一锟斤拷锟斤拷锟节讹拷锟斤拷元锟斤拷之锟斤拷锟斤拷锟叫≡拷兀锟斤拷锟节讹拷锟斤拷元锟截伙拷锟斤拷锟斤拷 O(time) =
+ *         n^2 Space = 1
  */
 public class SelectionSort_1 {
 
@@ -29,12 +28,12 @@ public class SelectionSort_1 {
 			System.out.println(arr[i]);
 		}
 	}
-	
-	public static void selectionSort (int[] arr) {
-		if(arr == null || arr.length <= 1) {
+
+	public static void selectionSort(int[] arr) {
+		if (arr == null || arr.length <= 1) {
 			return;
 		}
-		
+
 		for (int i = 0; i < arr.length; i++) {
 			int global = i;
 			for (int j = i + 1; j < arr.length; j++) {

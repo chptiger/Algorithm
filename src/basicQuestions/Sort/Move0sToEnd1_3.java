@@ -8,8 +8,8 @@ import java.util.Arrays;
  * maintained. Assumptions: The given array is not null. Examples: {1} --> {1}
  * {1, 0, 3, 0, 1} --> {1, 3, 1, 0, 0} or {1, 1, 3, 0, 0} or {3, 1, 1, 0, 0}
  * 
- * O() -> n
- * space -> 1
+ * O() -> n space -> 1
+ * 
  * @author Thomas
  *
  */
@@ -19,8 +19,8 @@ public class Move0sToEnd1_3 {
 		move0sToEnd1(arr);
 		System.out.println(Arrays.toString(arr));
 	}
-	
-	public static void move0sToEnd1 (int[] arr) {
+
+	public static void move0sToEnd1(int[] arr) {
 		if (arr == null || arr.length <= 1) {
 			return;
 		}
@@ -30,9 +30,9 @@ public class Move0sToEnd1_3 {
 				arr[global++] = arr[i];
 			}
 		}
-		while (global <= arr.length -1) {
+		while (global <= arr.length - 1) {
 			arr[global++] = 0;
 		}
-		
+
 	}
 }

@@ -36,28 +36,30 @@ For instance, when n = 4, we have 2 * 2 > 3 * 1.
 To fix it, we keep breaking n into 3's until n gets smaller than 10, then solve the problem by brute-force.
 f(n) = max(2f(n-2),3f(n-3));
 */
-public class IntegerBreak_343{
-	public static void main(String[] args){
+public class IntegerBreak_343 {
+	public static void main(String[] args) {
 		int n = 10;
 		int res = integerBreak(n);
-		System.out.println( res );
+		System.out.println(res);
 	}
-	
+
 	public static int integerBreak(int n) {
-        
-		if(n <= 3) return n-1;
-		if( n == 4) return 4;
-		if( n == 5) return 6;
+
+		if (n <= 3)
+			return n - 1;
+		if (n == 4)
+			return 4;
+		if (n == 5)
+			return 6;
 		int[] p = new int[n];
-		p[2]=2;
-		p[3]=4;
-		p[4]=6;
+		p[2] = 2;
+		p[3] = 4;
+		p[4] = 6;
 		p[5] = 9;
-		for(int i = 6; i < n; i++){
-			p[i] = 3*p[i-3];
+		for (int i = 6; i < n; i++) {
+			p[i] = 3 * p[i - 3];
 		}
-		int res = p[n-1];
+		int res = p[n - 1];
 		return res;
-    }
+	}
 }
- 

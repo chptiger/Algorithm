@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class HeapSort {
 	public static int length;
+
 	private static void heapSort(int[] arr) {
 		build_heap(arr);
 		for (int i = arr.length - 1; i >= 2; i--) {
@@ -38,7 +39,7 @@ public class HeapSort {
 
 		if (largest == i) {
 			return;
-		}else{
+		} else {
 
 			int tmp = arr[i];
 			arr[i] = arr[largest];
@@ -47,6 +48,7 @@ public class HeapSort {
 			build_modify_max_heap(arr, largest);
 		}
 	}
+
 	public static void main(String[] args) {
 		int[] arr = { 4, 7, 8, 1, 9, 10 };
 		length = arr.length;
@@ -55,5 +57,4 @@ public class HeapSort {
 		System.out.println("after sorted" + Arrays.toString(arr));
 	}
 
-	
 }

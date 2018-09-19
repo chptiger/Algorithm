@@ -29,17 +29,17 @@ public class MinumNunberJumps_0 {
 		Assert.assertEquals(2, minJump(new int[] { 3, 3, 1, 0, 4 }));
 		Assert.assertEquals(-1, minJump(new int[] { 2, 1, 1, 0, 2 }));
 		Assert.assertEquals(2, minJump(new int[] { 3, 3, 1, 0, 4 }));
-//		Assert.assertEquals(-1, minJump2(new int[] { 2, 1, 1, 0, 2 }));
+		// Assert.assertEquals(-1, minJump2(new int[] { 2, 1, 1, 0, 2 }));
 	}
-	
+
 	private static int minJump(int[] input) {
 		int[] min = new int[input.length];
 		min[input.length - 1] = input[input.length - 1] > 0 ? 0 : -1;
-		
-		for(int i = input.length - 2; i >= 0; i--) {
+
+		for (int i = input.length - 2; i >= 0; i--) {
 			int minStep = -1;
-			for(int j = i + 1; j <= input.length - 1; j++) {
-				if(min[j] >= 0 && i + input[i] >= j) {
+			for (int j = i + 1; j <= input.length - 1; j++) {
+				if (min[j] >= 0 && i + input[i] >= j) {
 					minStep = minStep < 0 ? Math.max(minStep, 1 + min[j]) : Math.min(minStep, 1 + min[j]);
 				}
 			}

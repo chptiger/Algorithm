@@ -1,4 +1,5 @@
 package tree;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -883,6 +884,7 @@ public class TreeNode_Test {
 		}
 		return result;
 	}
+
 	static class TreeNode {
 		int val;
 		TreeNode left;
@@ -894,4 +896,3 @@ public class TreeNode_Test {
 	}
 
 }
-

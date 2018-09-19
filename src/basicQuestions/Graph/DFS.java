@@ -2,129 +2,112 @@ package Graph;
 
 import java.util.*;
 
-public class DFS
-{
-   /* ------------------------------------------
-      Data structure used to represent a graph
-      ------------------------------------------ */
-   int[][]  adjMatrix;
-   int      rootNode = 0;
-   int      NNodes;
+public class DFS {
+	/*
+	 * ------------------------------------------ Data structure used to represent a
+	 * graph ------------------------------------------
+	 */
+	int[][] adjMatrix;
+	int rootNode = 0;
+	int NNodes;
 
-   boolean[] visited; 
+	boolean[] visited;
 
-   /* -------------------------------
-      Construct a graph of N nodes
-      ------------------------------- */
-   DFS(int N)
-   {
-      NNodes = N;
-      adjMatrix = new int[N][N];
-      visited = new boolean[N];
-   }
+	/*
+	 * ------------------------------- Construct a graph of N nodes
+	 * -------------------------------
+	 */
+	DFS(int N) {
+		NNodes = N;
+		adjMatrix = new int[N][N];
+		visited = new boolean[N];
+	}
 
-   DFS(int[][] mat)
-   {
-      int i, j;
+	DFS(int[][] mat) {
+		int i, j;
 
-      NNodes = mat.length;
+		NNodes = mat.length;
 
-      adjMatrix = new int[NNodes][NNodes];
-      visited = new boolean[NNodes];
+		adjMatrix = new int[NNodes][NNodes];
+		visited = new boolean[NNodes];
 
+		for (i = 0; i < NNodes; i++)
+			for (j = 0; j < NNodes; j++)
+				adjMatrix[i][j] = mat[i][j];
+	}
 
-      for ( i=0; i < NNodes; i++)
-         for ( j=0; j < NNodes; j++)
-            adjMatrix[i][j] = mat[i][j];
-   }
+	public void dfs() {
+		// DFS uses Stack data structure
 
-   public void dfs()
-   {
-      //DFS uses Stack data structure
+		Stack<Integer> s = new Stack<Integer>();
 
-      Stack<Integer> s = new Stack<Integer>();
+		s.push(rootNode);
+		visited[rootNode] = true;
 
-      s.push(rootNode);
-      visited[rootNode] = true;
+		printNode(rootNode);
 
-      printNode(rootNode);
+		while (!s.isEmpty()) {
+			int n, child;
 
-      while( !s.isEmpty() )
-      {
-         int n, child;
+			n = (s.peek()).intValue();
 
-         n = (s.peek()).intValue();
+			child = getUnvisitedChildNode(n);
 
-         child = getUnvisitedChildNode(n);
+			if (child != -1) {
+				visited[child] = true;
 
-         if ( child != -1 )
-         {
-            visited[child] = true;
+				printNode(child);
 
-            printNode(child);
+				s.push(child);
+			} else {
+				s.pop();
+			}
+		}
 
-            s.push(child);
-         }
-         else
-         {
-            s.pop();
-         }
-      }
+		clearVisited(); // Clear visited property of nodes
+	}
 
-      clearVisited();      //Clear visited property of nodes
-   }
+	int getUnvisitedChildNode(int n) {
+		int j;
 
+		for (j = 0; j < NNodes; j++) {
+			if (adjMatrix[n][j] > 0) {
+				if (!visited[j])
+					return (j);
+			}
+		}
 
-   int getUnvisitedChildNode(int n)
-   {
-      int j;
+		return (-1);
+	}
 
-      for ( j = 0; j < NNodes; j++ )
-      {
-	 if ( adjMatrix[n][j] > 0 )
-         {
-	    if ( ! visited[j] )
-               return(j);
-         }
-      }
+	void clearVisited() {
+		int i;
 
-      return(-1);
-   }
+		for (i = 0; i < visited.length; i++)
+			visited[i] = false;
+	}
 
-   void clearVisited()
-   {
-      int i;
+	void printNode(int n) {
+		System.out.println(n);
+	}
 
-      for (i = 0; i < visited.length; i++)
-         visited[i] = false;
-   }
+	public static void main(String[] args) {
+		// 0 1 2 3 4 5 6 7 8
+		// ===================================================
+		int[][] conn = { { 0, 1, 0, 1, 0, 0, 0, 0, 1 }, // 0
+				{ 1, 0, 0, 0, 0, 0, 0, 1, 0 }, // 1
+				{ 0, 0, 0, 1, 0, 1, 0, 1, 0 }, // 2
+				{ 1, 0, 1, 0, 1, 0, 0, 0, 0 }, // 3
+				{ 0, 0, 0, 1, 0, 0, 0, 0, 1 }, // 4
+				{ 0, 0, 1, 0, 0, 0, 1, 0, 0 }, // 5
+				{ 0, 0, 0, 0, 0, 1, 0, 0, 0 }, // 6
+				{ 0, 1, 1, 0, 0, 0, 0, 0, 0 }, // 7
+				{ 1, 0, 0, 0, 1, 0, 0, 0, 0 } };// 8
 
-   void printNode(int n)
-   {
-      System.out.println(n);
-   }
+		DFS G = new DFS(conn);
 
-   public static void main(String[] args)
-   {
-//                        0  1  2  3  4  5  6  7  8
-// ===================================================
-      int[][] conn = {  { 0, 1, 0, 1, 0, 0, 0, 0, 1 },  // 0
-			{ 1, 0, 0, 0, 0, 0, 0, 1, 0 },  // 1
-			{ 0, 0, 0, 1, 0, 1, 0, 1, 0 },  // 2
-			{ 1, 0, 1, 0, 1, 0, 0, 0, 0 },  // 3
-			{ 0, 0, 0, 1, 0, 0, 0, 0, 1 },  // 4
-			{ 0, 0, 1, 0, 0, 0, 1, 0, 0 },  // 5
-			{ 0, 0, 0, 0, 0, 1, 0, 0, 0 },  // 6
-			{ 0, 1, 1, 0, 0, 0, 0, 0, 0 },  // 7
-			{ 1, 0, 0, 0, 1, 0, 0, 0, 0 } };// 8
+		G.clearVisited();
+		G.dfs();
 
-
-      DFS G = new DFS(conn);
-
-      G.clearVisited();
-      G.dfs();
-
-   }
+	}
 }
-
-

@@ -18,13 +18,13 @@ Update (2015-06-11):
 The class name of the Java function had been updated to MyStack instead of Stack.
 */
 
-public class Stack_by_Queues_225{
-	public static void main(String[] args){
-		
+public class Stack_by_Queues_225 {
+	public static void main(String[] args) {
+
 		Stack_by_Queues();
 	}
-	
-	public static void Stack_by_Queues(){
+
+	public static void Stack_by_Queues() {
 		Queue<Integer> q = new Queue<Integer>();
 	}
 }

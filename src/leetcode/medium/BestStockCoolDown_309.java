@@ -101,22 +101,29 @@ we can do even better:
 */
 package leetcode.medium;
 
-public class BestStockCoolDown_309{
-	public static void main(String[] args){
-		int[] nums = { 1, 2, 3, 0, 2};
-		int res = maxProfit( nums );
-		System.out.println( res );
+public class BestStockCoolDown_309 {
+	public static void main(String[] args) {
+		int[] nums = { 1, 2, 3, 0, 2 };
+		int res = maxProfit(nums);
+		System.out.println(res);
 	}
+
 	public static int maxProfit(int[] prices) {
-        if( prices == null || prices.length <=1) return 0;
-		
-		int s0 = 0; int s1 = 0; int s2 =0;
-		int b0 = -prices[0]; int b1 = b0;
-		for( int i = 0; i < prices.length; i++){
-			b0 = Math.max( b1, s2 - prices[i]);
-			s0 = Math.max( s1, b1 + prices[i]);
-			b1 = b0; s2 = s1; s1 = s0;
+		if (prices == null || prices.length <= 1)
+			return 0;
+
+		int s0 = 0;
+		int s1 = 0;
+		int s2 = 0;
+		int b0 = -prices[0];
+		int b1 = b0;
+		for (int i = 0; i < prices.length; i++) {
+			b0 = Math.max(b1, s2 - prices[i]);
+			s0 = Math.max(s1, b1 + prices[i]);
+			b1 = b0;
+			s2 = s1;
+			s1 = s0;
 		}
 		return s0;
-    }
+	}
 }

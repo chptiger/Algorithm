@@ -40,33 +40,33 @@ Notes:
 S and all words in words consist only of lowercase letters
  */
 public class ExpressiveWords_809 {
-	
+
 	@Test
 	public void test_expressiveWords() {
 		String s = "heeellooo";
-		String[] words = {"hello", "hi", "helo"};
+		String[] words = { "hello", "hi", "helo" };
 		Assert.assertEquals(1, findExpressiveWords(s, words));
 	}
 
 	private int findExpressiveWords(String s, String[] words) {
-		if(s == null || words.length < 1) {
+		if (s == null || words.length < 1) {
 			return -1;
 		}
-		
+
 		RLE input = new RLE(s);
 		int result = 0;
-		for(String word : words) {
+		for (String word : words) {
 			RLE wordToCheck = new RLE(word);
-			if(!input.key.equals(wordToCheck.key)) {
+			if (!input.key.equals(wordToCheck.key)) {
 				continue;
 			}
-			for(int i = 0; i < input.key.length(); i++) {
+			for (int i = 0; i < input.key.length(); i++) {
 				int c1 = input.count.get(i);
 				int c2 = wordToCheck.count.get(i);
-				if(c1 < 3 && c1 != c2 || c1 < c2) {
+				if (c1 < 3 && c1 != c2 || c1 < c2) {
 					break;
-				} 				
-				if(i == input.key.length() - 1) {
+				}
+				if (i == input.key.length() - 1) {
 					result++;
 				}
 			}
@@ -76,30 +76,30 @@ public class ExpressiveWords_809 {
 }
 
 /*
- *  Run Length Encoding
- *  
- *  save head of string in every group with count number in the RLE class
- *  
- *  S = "heeellooo"
- *  
- *  TODO build new class vs HashMap
+ * Run Length Encoding
+ * 
+ * save head of string in every group with count number in the RLE class
+ * 
+ * S = "heeellooo"
+ * 
+ * TODO build new class vs HashMap
  */
 class RLE {
 	String key;
 	List<Integer> count;
-	
+
 	public RLE(String s) {
 		StringBuilder sb = new StringBuilder();
 		count = new ArrayList<>();
-		
+
 		char[] input = s.toCharArray();
 		int pre = -1; // how to count the continual same char of the string
-		for(int i = 0; i < input.length; i++) {
-			if(i == input.length - 1 || input[i] != input[i+1]) { 	
+		for (int i = 0; i < input.length; i++) {
+			if (i == input.length - 1 || input[i] != input[i + 1]) {
 				sb.append(input[i]);
 				count.add(i - pre);
 				pre = i;
-			} 
+			}
 		}
 		key = sb.toString();
 	}

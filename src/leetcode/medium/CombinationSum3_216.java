@@ -26,36 +26,38 @@ package leetcode.medium;
 import java.util.List;
 import java.util.ArrayList;
 
-public class CombinationSum3_216{
-	public static void main(String[] args){
+public class CombinationSum3_216 {
+	public static void main(String[] args) {
 		int k = 3;
 		int n = 9;
-		List<List<Integer>> res = combinationSum3(k , n );
-		System.out.println( res );
+		List<List<Integer>> res = combinationSum3(k, n);
+		System.out.println(res);
 	}
-	
+
 	public static List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
-		combinationSum3_help(ans,new ArrayList<Integer>(), k ,1,n);
+		List<List<Integer>> ans = new ArrayList<List<Integer>>();
+		combinationSum3_help(ans, new ArrayList<Integer>(), k, 1, n);
 		return ans;
-    }
-	
-	//https://leetcode.com/discuss/62421/simple-and-clean-java-code-backtracking 
-	public static void combinationSum3_help(List<List<Integer>> ans, List<Integer> tmp,int k, int start, int n){
-		if( tmp.size() > k || n < 0) return;
-		if( tmp.size()==k && n == 0){
-			List<Integer> li = new ArrayList<Integer>(tmp);//tmp will continue being modified. I want to put a tmp of comb in result instead
+	}
+
+	// https://leetcode.com/discuss/62421/simple-and-clean-java-code-backtracking
+	public static void combinationSum3_help(List<List<Integer>> ans, List<Integer> tmp, int k, int start, int n) {
+		if (tmp.size() > k || n < 0)
+			return;
+		if (tmp.size() == k && n == 0) {
+			List<Integer> li = new ArrayList<Integer>(tmp);// tmp will continue being modified. I want to put a tmp of
+															// comb in result instead
 			ans.add(li);
 			return;
 		}
-		
-		for( int i = start; i <= 9; i++){
-			//if( n >= i){
-				tmp.add(i);
-				combinationSum3_help( ans, tmp, k, i+1, n-i);
-				tmp.remove(tmp.size()-1);
-			//}
-			
+
+		for (int i = start; i <= 9; i++) {
+			// if( n >= i){
+			tmp.add(i);
+			combinationSum3_help(ans, tmp, k, i + 1, n - i);
+			tmp.remove(tmp.size() - 1);
+			// }
+
 		}
 	}
 }

@@ -18,17 +18,17 @@ Examples
 */
 
 public class LargestSumSubarray_1 {
-	
+
 	@Test
 	public void test_largestSumSubarry() {
-		Assert.assertEquals(0, largestSum(new int[]{0, -1, -2, -3}));
-        Assert.assertEquals(10, largestSum(new int[]{1, 2, 3, 4, -1}));
-        Assert.assertEquals(109, largestSum(new int[]{1, 2, 3, 4, -1, 100}));
-        Assert.assertEquals(5, largestSum(new int[]{2, -1, 4, -2, 1}));
-        Assert.assertEquals(-1, largestSum(new int[]{-2, -1, -3}));
+		Assert.assertEquals(0, largestSum(new int[] { 0, -1, -2, -3 }));
+		Assert.assertEquals(10, largestSum(new int[] { 1, 2, 3, 4, -1 }));
+		Assert.assertEquals(109, largestSum(new int[] { 1, 2, 3, 4, -1, 100 }));
+		Assert.assertEquals(5, largestSum(new int[] { 2, -1, 4, -2, 1 }));
+		Assert.assertEquals(-1, largestSum(new int[] { -2, -1, -3 }));
 	}
-	
-////	TODO to check it again
+
+	//// TODO to check it again
 	private static int largestSum(int[] input) {
 		int[] result = new int[input.length];
 		result[0] = input[0];
@@ -38,14 +38,14 @@ public class LargestSumSubarray_1 {
 				result[i] = result[i - 1] + input[i];
 			} else if (result[i - 1] + input[i] > 0) {
 				result[i] = result[i - 1] + input[i];
-			} else {//result[i - 1] + input[i] <= 0
+			} else {// result[i - 1] + input[i] <= 0
 				result[i] = Math.max(result[i - 1] + input[i], input[i]);
 			}
 			max = Math.max(max, result[i]);
 		}
 		return max;
 	}
-	
+
 	private static int largestSum1(int[] input) {
 		int max = input[0];
 		int tmp = input[0];

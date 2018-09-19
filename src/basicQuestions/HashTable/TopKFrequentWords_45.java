@@ -21,13 +21,13 @@ import java.util.PriorityQueue;
  * (the list could be of size K or smaller than K)
  * 
  * Examples Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"],
- * top 2 frequent words are [�b�, �c�] 
+ * top 2 frequent words are [�b�, �c�]
  * 
- * Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"], 
- * top 4 frequent words are [�b�, �c�, "a", "d"]
+ * Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"], top 4
+ * frequent words are [�b�, �c�, "a", "d"]
  * 
- * Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"], 
- * top 5 frequent words are [�b�, �c�, "a", "d�]
+ * Composition = ["a", "a", "b", "b", "b", "b", "c", "c", "c", "d"], top 5
+ * frequent words are [�b�, �c�, "a", "d�]
  * 
  * @author xx65
  *
@@ -36,10 +36,10 @@ public class TopKFrequentWords_45 {
 
 	public static void main(String[] args) {
 		String[] Composition = { "a", "a", "b", "b", "b", "b", "c", "c", "c", "d" };
-		
+
 		// java 8
 		System.out.println(Arrays.toString(topKFrequentWords(Composition, 3)));
-		
+
 		// priority queue
 		System.out.println(Arrays.toString(topKFrequentPriorityQueue(Composition, 3)));
 	}

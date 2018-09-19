@@ -20,14 +20,14 @@ public class RemoveDuplicatesFromSortedList_83 {
 		l4.next = l5;
 		Assert.assertEquals("1,2,3", ListNodeUtil.print(removeDuplicatesFromSortedList(l1)));
 	}
-	
+
 	private static ListNode removeDuplicatesFromSortedList(ListNode head) {
-		if(head == null) {
+		if (head == null) {
 			return head;
 		}
 		ListNode res = head;
-		while(head != null && head.next != null) {
-			if(head != null && head.next != null && head.value == head.next.value) {
+		while (head != null && head.next != null) {
+			if (head != null && head.next != null && head.value == head.next.value) {
 				head.next = head.next.next;
 			} else {
 				head = head.next;

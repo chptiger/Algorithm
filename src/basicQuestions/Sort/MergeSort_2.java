@@ -11,8 +11,7 @@ import java.util.Arrays;
  * anything. What if the given array is of length zero? In this case, we do not
  * need to do anything.
  * 
- * O(n) - > nlogn
- * Space - >n
+ * O(n) - > nlogn Space - >n
  * 
  * @author Thomas
  *

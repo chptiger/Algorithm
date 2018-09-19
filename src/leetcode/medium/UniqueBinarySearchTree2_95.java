@@ -37,68 +37,60 @@ combine them in all possible ways with the root.
 */
 import java.util.ArrayList;
 import java.util.List;
-public class UniqueBinarySearchTree2_95{
-	public static void main(String[] args){
+
+public class UniqueBinarySearchTree2_95 {
+	public static void main(String[] args) {
 		int n = 5;
 		List<TreeNode> res = generateTrees(n);
 		System.out.println(res);
 	}
-	
+
 	public static List<TreeNode> generateTrees(int n) {
 
-        return genTrees(1,n);
-    }
+		return genTrees(1, n);
+	}
 
-    public static List<TreeNode> genTrees (int start, int end)
-    {
+	public static List<TreeNode> genTrees(int start, int end) {
 
-        List<TreeNode> list = new ArrayList<TreeNode>();
+		List<TreeNode> list = new ArrayList<TreeNode>();
 
-        if(start>end)
-        {
-            list.add(null);
-            return list;
-        }
+		if (start > end) {
+			list.add(null);
+			return list;
+		}
 
-        if(start == end){
-            list.add(new TreeNode(start));
-            return list;
-        }
+		if (start == end) {
+			list.add(new TreeNode(start));
+			return list;
+		}
 
-        List<TreeNode> left,right;
-        for(int i=start;i<=end;i++)
-        {
+		List<TreeNode> left, right;
+		for (int i = start; i <= end; i++) {
 
-            left = genTrees(start, i-1);
-            right = genTrees(i+1,end);
+			left = genTrees(start, i - 1);
+			right = genTrees(i + 1, end);
 
-            for(TreeNode lnode: left)
-            {
-                for(TreeNode rnode: right)
-                {
-                    TreeNode root = new TreeNode(i);
-                    root.left = lnode;
-                    root.right = rnode;
-                    list.add(root);
-                }
-            }
+			for (TreeNode lnode : left) {
+				for (TreeNode rnode : right) {
+					TreeNode root = new TreeNode(i);
+					root.left = lnode;
+					root.right = rnode;
+					list.add(root);
+				}
+			}
 
-        }
+		}
 
-        return list;
-    }
-	
+		return list;
+	}
+
 	public static class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode(int x) { val = x; }
-  }
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode(int x) {
+			val = x;
+		}
+	}
 }
-
-
-
-
-   
-
-

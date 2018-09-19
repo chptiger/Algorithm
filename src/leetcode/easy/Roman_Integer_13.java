@@ -8,10 +8,11 @@ Input is guaranteed to be within the range from 1 to 3999.
 // rules:ä½�äºŽå¤§æ•°çš„å�Žé�¢æ—¶å°±ä½œä¸ºåŠ æ•°ï¼›ä½�äºŽå¤§æ•°çš„å‰�é�¢å°±ä½œä¸ºå‡�æ•°
 //egï¼šâ…¢=3,â…£=4,â…¥=6,â…©â…¨=19,â…©â…©=20,â…©Lâ…¤=45,MCMâ…©â…©C=1980
 //"DCXXI"
-package leetcode.easy;		
-public class Roman_Integer_13{
-	public static void main(String[] args){
-		String s= "ssd";
-		
+package leetcode.easy;
+
+public class Roman_Integer_13 {
+	public static void main(String[] args) {
+		String s = "ssd";
+
 	}
 }
